@@ -1,46 +1,46 @@
 import Link from "next/link";
-import { Globe, Smartphone, Search, Zap, CheckCircle, ArrowRight, Code, Palette } from "lucide-react";
+import { Share2, TrendingUp, Users, BarChart3, CheckCircle, ArrowRight, Calendar, PenTool, MessageCircle } from "lucide-react";
 
 export const metadata = {
-  title: "Sites e Landing Pages | Digital Smart",
-  description: "Desenvolvimento de sites profissionais, landing pages de alta conversão, responsivos e otimizados para SEO.",
+  title: "Gestão de Redes Sociais | Digital Smart",
+  description: "Estratégia completa de conteúdo, criação de posts e gestão profissional das suas redes sociais para fortalecer sua marca.",
 };
 
 const benefits = [
-  "Design moderno e profissional",
-  "100% responsivo (mobile-first)",
-  "Otimizado para SEO",
-  "Carregamento ultra-rápido",
-  "Painel administrativo intuitivo",
-  "Integração com redes sociais",
+  "Estratégia de conteúdo personalizada",
+  "Criação de posts profissionais",
+  "Calendário editorial organizado",
+  "Análise de métricas e resultados",
+  "Engajamento com a audiência",
+  "Relatórios mensais detalhados",
 ];
 
-const types = [
+const services = [
   { 
-    icon: Globe,
-    name: "Site Institucional", 
-    description: "Apresente sua empresa de forma profissional e conquiste credibilidade no mercado." 
+    icon: Calendar, 
+    name: "Planejamento", 
+    description: "Calendário editorial estratégico alinhado aos seus objetivos" 
   },
   { 
-    icon: Code,
-    name: "E-commerce", 
-    description: "Venda seus produtos online com uma loja virtual completa e segura." 
+    icon: PenTool, 
+    name: "Criação de Conteúdo", 
+    description: "Posts, stories e reels profissionais para sua marca" 
   },
   { 
-    icon: Palette,
-    name: "Portfólio", 
-    description: "Mostre seus trabalhos e conquiste novos clientes com um portfólio impactante." 
+    icon: MessageCircle, 
+    name: "Gestão de Comunidade", 
+    description: "Interação e engajamento com sua audiência" 
   },
   { 
-    icon: Zap,
-    name: "One Page", 
-    description: "Site de página única, perfeito para apresentar um produto ou serviço específico." 
+    icon: BarChart3, 
+    name: "Análise de Dados", 
+    description: "Métricas e insights para otimização contínua" 
   },
 ];
 
-export default function SitesPage() {
+export default function GestaoRedesSociaisPage() {
   return (
-   <div className="pt-20 max-lg:pt-0">
+    <div className="pt-20 max-lg:pt-0">
       {/* Hero */}
       <section className="pt-20 max-lg:pt-34 bg-[#543295] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#543295] via-[#4a2d85] to-[#3d2570]" />
@@ -48,15 +48,15 @@ export default function SitesPage() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/20">
-              <Globe className="w-4 h-4" />
+              <Share2 className="w-4 h-4" />
               Serviço
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Sites e Landing Pages
+              Gestão de Redes Sociais
             </h1>
             <p className="text-xl text-white/80 mb-8 leading-relaxed">
-              Desenvolvimento de sites profissionais e landing pages de alta conversão, 
-              responsivos e otimizados para SEO que geram resultados.
+              Estratégia completa de conteúdo, criação de posts profissionais e gestão 
+              das suas redes sociais para fortalecer sua marca e gerar resultados.
             </p>
             <Link
               href="/contato"
@@ -78,11 +78,12 @@ export default function SitesPage() {
                 Benefícios
               </span>
               <h2 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900">
-                Por que ter um site profissional?
+                Por que investir em Gestão de Redes?
               </h2>
               <p className="mt-4 text-gray-600 leading-relaxed">
-                Seu site é a vitrine do seu negócio na internet. Um site bem desenvolvido 
-                transmite profissionalismo, gera confiança e converte visitantes em clientes.
+                As redes sociais são essenciais para construir autoridade, engajar 
+                seu público e gerar oportunidades de negócio. Com uma gestão profissional, 
+                sua marca se destaca e conquista resultados consistentes.
               </p>
 
               <ul className="mt-8 space-y-4">
@@ -97,55 +98,55 @@ export default function SitesPage() {
 
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition-all">
-                <Smartphone className="w-10 h-10 text-[#543295] mx-auto mb-3" />
+                <TrendingUp className="w-10 h-10 text-[#543295] mx-auto mb-3" />
+                <div className="text-3xl font-bold text-[#543295]">+200%</div>
+                <div className="text-sm text-gray-600 mt-1">Aumento em engajamento</div>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition-all">
+                <Users className="w-10 h-10 text-[#543295] mx-auto mb-3" />
+                <div className="text-3xl font-bold text-[#543295]">+40</div>
+                <div className="text-sm text-gray-600 mt-1">Empresas atendidas</div>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition-all">
+                <Calendar className="w-10 h-10 text-[#543295] mx-auto mb-3" />
+                <div className="text-3xl font-bold text-[#543295]">30+</div>
+                <div className="text-sm text-gray-600 mt-1">Posts por mês</div>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition-all">
+                <Share2 className="w-10 h-10 text-[#543295] mx-auto mb-3" />
                 <div className="text-3xl font-bold text-[#543295]">100%</div>
-                <div className="text-sm text-gray-600 mt-1">Responsivo</div>
-              </div>
-              <div className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition-all">
-                <Search className="w-10 h-10 text-[#543295] mx-auto mb-3" />
-                <div className="text-3xl font-bold text-[#543295]">SEO</div>
-                <div className="text-sm text-gray-600 mt-1">Otimizado</div>
-              </div>
-              <div className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition-all">
-                <Zap className="w-10 h-10 text-[#543295] mx-auto mb-3" />
-                <div className="text-3xl font-bold text-[#543295]">&lt;3s</div>
-                <div className="text-sm text-gray-600 mt-1">Carregamento</div>
-              </div>
-              <div className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition-all">
-                <Globe className="w-10 h-10 text-[#543295] mx-auto mb-3" />
-                <div className="text-3xl font-bold text-[#543295]">24/7</div>
-                <div className="text-sm text-gray-600 mt-1">Online</div>
+                <div className="text-sm text-gray-600 mt-1">Dedicação</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Types */}
+      {/* Services */}
       <section className="py-20 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[#543295] font-semibold text-sm uppercase tracking-wider">
-              Tipos de Sites
+              O que fazemos
             </span>
             <h2 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900">
-              Qual site você precisa?
+              Nossos Serviços
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {types.map((type) => (
+            {services.map((service) => (
               <div
-                key={type.name}
+                key={service.name}
                 className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-lg hover:border-[#543295]/30 transition-all duration-300"
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-[#543295]/10 rounded-lg mb-4">
-                  <type.icon className="w-6 h-6 text-[#543295]" />
+                  <service.icon className="w-6 h-6 text-[#543295]" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {type.name}
+                  {service.name}
                 </h3>
-                <p className="text-gray-600 text-sm">{type.description}</p>
+                <p className="text-gray-600 text-sm">{service.description}</p>
               </div>
             ))}
           </div>

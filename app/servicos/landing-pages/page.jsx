@@ -40,9 +40,9 @@ const types = [
 
 export default function LandingPagesPage() {
   return (
-    <div className="pt-20">
+    <div className="pt-20 max-lg:pt-0">
       {/* Hero */}
-      <section className="py-20 bg-gradient-to-br from-violet-700 via-violet-600 to-amber-500 text-white relative overflow-hidden">
+      <section className="pt-20 max-lg:pt-34 bg-[#543295] text-white relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-96 h-96 bg-amber-400/20 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-violet-400/20 rounded-full blur-3xl" />

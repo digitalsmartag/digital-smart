@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Target, Eye, Diamond, Users, Globe, Award, ArrowRight, Sparkles } from "lucide-react";
+import Image from "next/image";
+import { Target, Eye, Diamond, Users, Globe, Award, ArrowRight, TrendingUp, CheckCircle } from "lucide-react";
 
 export const metadata = {
   title: "Sobre Nós | Digital Smart",
@@ -29,25 +30,38 @@ const values = [
   },
 ];
 
+const specialties = [
+  "Identidade Visual",
+  "Tráfego Pago",
+  "Criação de Sites",
+  "Landing Pages",
+  "Automações WhatsApp",
+  "Gestão de Redes Sociais",
+];
+
 export default function SobrePage() {
   return (
-    <div className="pt-20">
+    <div className="pt-16 sm:pt-20">
       {/* Hero */}
-      <section className="py-20 bg-gradient-to-br from-violet-600 via-violet-700 to-violet-800 text-white relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-violet-400/20 rounded-full blur-3xl" />
+      <section className="py-20 lg:py-28 bg-[#543295] text-white relative overflow-hidden">
+        {/* Background texture */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] bg-[size:40px_40px]" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center justify-center w-24 h-24 bg-white/10 rounded-2xl mb-8">
-              <span className="text-5xl font-bold">DS</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
-              Digital Smart 💜
+            <Image 
+              src="/root/logo-branca.png" 
+              alt="Digital Smart" 
+              width={180} 
+              height={60} 
+              className="h-12 w-auto object-contain mx-auto mb-8" 
+            />
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              Sobre a Digital Smart
             </h1>
-            <p className="text-xl text-violet-100 leading-relaxed">
+            <p className="text-xl text-white/80 leading-relaxed">
               Uma empresa de marketing digital que oferece uma ampla gama de serviços 
               para ajudar outras empresas e negócios a alcançar seus objetivos on-line.
             </p>
@@ -60,12 +74,12 @@ export default function SobrePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-violet-100 text-violet-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center gap-2 bg-[#543295]/10 text-[#543295] px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Target className="w-4 h-4" />
-                Quem Somos?
+                Quem Somos
               </div>
-              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6">
-                Uma empresa de marketing digital focada em resultados 🚀
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Uma empresa de marketing digital focada em resultados
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
                 A Digital Smart é uma agência de marketing digital que nasceu com o 
@@ -74,29 +88,29 @@ export default function SobrePage() {
                 completas para transformar a presença online do seu negócio.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Trabalhamos com empresas no Brasil 🇧🇷 e nos Estados Unidos 🇺🇸, 
+                Trabalhamos com empresas no Brasil e nos Estados Unidos, 
                 atendendo mais de 40 parceiros que confiam em nosso trabalho para 
                 alcançar seus objetivos de marketing e vendas.
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-violet-50 to-amber-50 rounded-3xl p-8">
+            <div className="bg-gradient-to-br from-[#543295]/5 to-[#543295]/10 rounded-3xl p-8">
               <div className="grid grid-cols-2 gap-6">
                 <div className="bg-white rounded-2xl p-6 text-center shadow-sm">
-                  <div className="text-4xl font-bold text-violet-600 mb-2">+40</div>
+                  <div className="text-4xl font-bold text-[#543295] mb-2">+40</div>
                   <div className="text-gray-600 text-sm">Empresas Parceiras</div>
                 </div>
                 <div className="bg-white rounded-2xl p-6 text-center shadow-sm">
-                  <div className="text-4xl font-bold text-violet-600 mb-2">2</div>
+                  <div className="text-4xl font-bold text-[#543295] mb-2">2</div>
                   <div className="text-gray-600 text-sm">Países Atendidos</div>
                 </div>
                 <div className="bg-white rounded-2xl p-6 text-center shadow-sm">
-                  <div className="text-4xl font-bold text-violet-600 mb-2">5+</div>
+                  <div className="text-4xl font-bold text-[#543295] mb-2">5+</div>
                   <div className="text-gray-600 text-sm">Anos de Experiência</div>
                 </div>
                 <div className="bg-white rounded-2xl p-6 text-center shadow-sm">
-                  <div className="text-4xl font-bold text-violet-600 mb-2">100%</div>
-                  <div className="text-gray-600 text-sm">Comprometimento</div>
+                  <div className="text-4xl font-bold text-[#543295] mb-2">+300%</div>
+                  <div className="text-gray-600 text-sm">Aumento em Vendas</div>
                 </div>
               </div>
             </div>
@@ -111,8 +125,8 @@ export default function SobrePage() {
             <div className="order-2 lg:order-1">
               <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-violet-100 rounded-2xl flex items-center justify-center">
-                    <Eye className="w-8 h-8 text-violet-600" />
+                  <div className="w-16 h-16 bg-[#543295]/10 rounded-2xl flex items-center justify-center">
+                    <TrendingUp className="w-8 h-8 text-[#543295]" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-900">Nossa Especialidade</h3>
@@ -120,34 +134,20 @@ export default function SobrePage() {
                   </div>
                 </div>
                 <ul className="space-y-4">
-                  <li className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
-                    <div className="w-2 h-2 bg-violet-600 rounded-full" />
-                    <span className="text-gray-700">Identidade Visual</span>
-                  </li>
-                  <li className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
-                    <div className="w-2 h-2 bg-violet-600 rounded-full" />
-                    <span className="text-gray-700">Tráfego Pago</span>
-                  </li>
-                  <li className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
-                    <div className="w-2 h-2 bg-violet-600 rounded-full" />
-                    <span className="text-gray-700">Criação de Sites</span>
-                  </li>
-                  <li className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
-                    <div className="w-2 h-2 bg-violet-600 rounded-full" />
-                    <span className="text-gray-700">Landing Pages</span>
-                  </li>
-                  <li className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
-                    <div className="w-2 h-2 bg-violet-600 rounded-full" />
-                    <span className="text-gray-700">Automações WhatsApp</span>
-                  </li>
+                  {specialties.map((item) => (
+                    <li key={item} className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+                      <CheckCircle className="w-5 h-5 text-[#543295]" />
+                      <span className="text-gray-700">{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
 
             <div className="order-1 lg:order-2">
-              <div className="inline-flex items-center gap-2 bg-violet-100 text-violet-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center gap-2 bg-[#543295]/10 text-[#543295] px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Eye className="w-4 h-4" />
-                O Que Fazemos?
+                O Que Fazemos
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Especialistas em marketing digital
@@ -168,7 +168,7 @@ export default function SobrePage() {
       </section>
 
       {/* Objetivo */}
-      <section className="py-20 bg-gradient-to-r from-violet-600 to-purple-600 text-white">
+      <section className="py-20 bg-[#543295] text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 rounded-2xl mb-8">
@@ -177,7 +177,7 @@ export default function SobrePage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Nosso Objetivo
             </h2>
-            <p className="text-xl text-violet-100 leading-relaxed">
+            <p className="text-xl text-white/80 leading-relaxed">
               Aqui na nossa empresa estamos comprometidos em fornecer soluções 
               personalizadas e eficazes para cada um dos nossos clientes. Nosso 
               objetivo é ser o parceiro estratégico que impulsiona o crescimento 
@@ -191,7 +191,7 @@ export default function SobrePage() {
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-violet-600 font-semibold text-sm uppercase tracking-wider">
+            <span className="text-[#543295] font-semibold text-sm uppercase tracking-wider">
               Nossos Valores
             </span>
             <h2 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900">
@@ -205,8 +205,8 @@ export default function SobrePage() {
                 key={value.title}
                 className="text-center p-6 rounded-2xl hover:bg-gray-50 transition-colors duration-300"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-violet-100 rounded-2xl mb-4">
-                  <value.icon className="w-8 h-8 text-violet-600" />
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-[#543295]/10 rounded-2xl mb-4">
+                  <value.icon className="w-8 h-8 text-[#543295]" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   {value.title}
@@ -231,7 +231,7 @@ export default function SobrePage() {
           </p>
           <Link
             href="/contato"
-            className="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-violet-600/25 hover:-translate-y-1"
+            className="inline-flex items-center gap-2 bg-[#543295] hover:bg-[#432476] text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-[#543295]/25"
           >
             Fale Conosco
             <ArrowRight className="w-5 h-5" />

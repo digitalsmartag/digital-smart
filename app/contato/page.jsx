@@ -4,7 +4,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send, CheckCircle, Loader2, Sparkles, Rocket } from "lucide-react";
+import Image from "next/image";
+import { Mail, Phone, MapPin, Send, CheckCircle, Loader2, MessageCircle } from "lucide-react";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
@@ -19,7 +20,7 @@ const services = [
   { value: "trafego-pago", label: "Tráfego Pago" },
   { value: "sites", label: "Criação de Sites" },
   { value: "landing-pages", label: "Landing Pages" },
-  { value: "posts", label: "Criação de Posts" },
+  { value: "gestao-redes", label: "Gestão de Redes Sociais" },
   { value: "automacoes-whatsapp", label: "Automações WhatsApp" },
   { value: "outro", label: "Outro" },
 ];
@@ -48,20 +49,27 @@ export default function ContatoPage() {
   };
 
   return (
-    <div className="pt-20">
+    <div className="pt-16 sm:pt-20">
       {/* Hero */}
-      <section className="py-20 bg-gradient-to-br from-violet-600 via-violet-700 to-violet-800 text-white relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-violet-400/20 rounded-full blur-3xl" />
+      <section className="py-20 lg:py-28 bg-[#543295] text-white relative overflow-hidden">
+        {/* Background texture */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] bg-[size:40px_40px]" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
-              Fale Conosco 💬
+            <Image 
+              src="/root/logo-branca.png" 
+              alt="Digital Smart" 
+              width={180} 
+              height={60} 
+              className="h-12 w-auto object-contain mx-auto mb-8" 
+            />
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              Fale Conosco
             </h1>
-            <p className="text-xl text-violet-100 leading-relaxed">
+            <p className="text-xl text-white/80 leading-relaxed">
               Estamos prontos para ajudar seu negócio a crescer no mundo digital. 
               Entre em contato e vamos conversar sobre seus objetivos.
             </p>
@@ -85,8 +93,8 @@ export default function ContatoPage() {
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-violet-600" />
+                  <div className="w-12 h-12 bg-[#543295]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6 text-[#543295]" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">E-mail</h3>
@@ -95,8 +103,8 @@ export default function ContatoPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-violet-600" />
+                  <div className="w-12 h-12 bg-[#543295]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-6 h-6 text-[#543295]" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Telefone</h3>
@@ -105,14 +113,25 @@ export default function ContatoPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-violet-600" />
+                  <div className="w-12 h-12 bg-[#543295]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-[#543295]" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Localização</h3>
-                    <p className="text-gray-600">Brasil 🇧🇷 | EUA 🇺🇸</p>
+                    <p className="text-gray-600">Brasil | Estados Unidos</p>
                   </div>
                 </div>
+
+                {/* WhatsApp Button */}
+                <a
+                  href="https://wa.me/5531984169075"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 w-full bg-green-500 hover:bg-green-600 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 mt-4"
+                >
+                  <MessageCircle className="w-6 h-6" />
+                  Chamar no WhatsApp
+                </a>
               </div>
 
               {/* Stats */}
@@ -122,19 +141,19 @@ export default function ContatoPage() {
                 </h3>
                 <ul className="space-y-3">
                   <li className="flex items-center gap-2 text-gray-600">
-                    <CheckCircle className="w-5 h-5 text-violet-600" />
+                    <CheckCircle className="w-5 h-5 text-[#543295]" />
                     +40 empresas parceiras
                   </li>
                   <li className="flex items-center gap-2 text-gray-600">
-                    <CheckCircle className="w-5 h-5 text-violet-600" />
+                    <CheckCircle className="w-5 h-5 text-[#543295]" />
                     Atendimento personalizado
                   </li>
                   <li className="flex items-center gap-2 text-gray-600">
-                    <CheckCircle className="w-5 h-5 text-violet-600" />
+                    <CheckCircle className="w-5 h-5 text-[#543295]" />
                     Resultados comprovados
                   </li>
                   <li className="flex items-center gap-2 text-gray-600">
-                    <CheckCircle className="w-5 h-5 text-violet-600" />
+                    <CheckCircle className="w-5 h-5 text-[#543295]" />
                     Suporte contínuo
                   </li>
                 </ul>
@@ -157,7 +176,7 @@ export default function ContatoPage() {
                     </p>
                     <button
                       onClick={() => setIsSubmitted(false)}
-                      className="text-violet-600 font-medium hover:underline"
+                      className="text-[#543295] font-medium hover:underline"
                     >
                       Enviar outra mensagem
                     </button>
@@ -184,7 +203,7 @@ export default function ContatoPage() {
                             className={`w-full px-4 py-3 rounded-xl border ${
                               errors.name
                                 ? "border-red-500 focus:ring-red-500"
-                                : "border-gray-200 focus:ring-violet-500"
+                                : "border-gray-200 focus:ring-[#543295]"
                             } focus:outline-none focus:ring-2 transition-all`}
                             placeholder="Seu nome"
                           />
@@ -210,7 +229,7 @@ export default function ContatoPage() {
                             className={`w-full px-4 py-3 rounded-xl border ${
                               errors.email
                                 ? "border-red-500 focus:ring-red-500"
-                                : "border-gray-200 focus:ring-violet-500"
+                                : "border-gray-200 focus:ring-[#543295]"
                             } focus:outline-none focus:ring-2 transition-all`}
                             placeholder="seu@email.com"
                           />
@@ -236,7 +255,7 @@ export default function ContatoPage() {
                             className={`w-full px-4 py-3 rounded-xl border ${
                               errors.phone
                                 ? "border-red-500 focus:ring-red-500"
-                                : "border-gray-200 focus:ring-violet-500"
+                                : "border-gray-200 focus:ring-[#543295]"
                             } focus:outline-none focus:ring-2 transition-all`}
                             placeholder="(11) 99999-9999"
                           />
@@ -259,7 +278,7 @@ export default function ContatoPage() {
                             type="text"
                             id="company"
                             {...register("company")}
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all"
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#543295] transition-all"
                             placeholder="Nome da empresa"
                           />
                         </div>
@@ -279,7 +298,7 @@ export default function ContatoPage() {
                           className={`w-full px-4 py-3 rounded-xl border ${
                             errors.service
                               ? "border-red-500 focus:ring-red-500"
-                              : "border-gray-200 focus:ring-violet-500"
+                              : "border-gray-200 focus:ring-[#543295]"
                           } focus:outline-none focus:ring-2 transition-all bg-white`}
                         >
                           <option value="">Selecione um serviço</option>
@@ -311,7 +330,7 @@ export default function ContatoPage() {
                           className={`w-full px-4 py-3 rounded-xl border ${
                             errors.message
                               ? "border-red-500 focus:ring-red-500"
-                              : "border-gray-200 focus:ring-violet-500"
+                              : "border-gray-200 focus:ring-[#543295]"
                           } focus:outline-none focus:ring-2 transition-all resize-none`}
                           placeholder="Conte-nos sobre seu projeto..."
                         />
@@ -326,7 +345,7 @@ export default function ContatoPage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 disabled:from-violet-400 disabled:to-purple-400 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-lg hover:shadow-violet-600/25 flex items-center justify-center gap-2 hover:scale-[1.02]"
+                        className="w-full bg-[#543295] hover:bg-[#432476] disabled:bg-[#543295]/50 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-lg hover:shadow-[#543295]/25 flex items-center justify-center gap-2"
                       >
                         {isSubmitting ? (
                           <>
