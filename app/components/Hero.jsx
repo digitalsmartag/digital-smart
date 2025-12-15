@@ -55,8 +55,7 @@ export default function Hero() {
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg lg:text-xl text-white/80 max-w-lg max-lg:absolute max-lg:-top-8 mx-auto lg:mx-0 leading-relaxed mb-8 lg:mb-10">
-              Somos especialistas em marketing digital com foco em resultados. 
-              Tráfego pago, sites de alta conversão e gestão estratégica de redes sociais.
+              Somos especialistas em marketing digital com foco em resultados com soluções em Tráfego pago, sites e landing pages de alta conversão, gestão estratégica de redes sociais, edições em imagens e vídeos de alta qualidade, treinamentos em marketing, automações em IA e muito mais..
             </p>
 
             {/* CTA Buttons */}
@@ -65,7 +64,7 @@ export default function Hero() {
                 href="/contato"
                 className="group inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg uppercase tracking-wide transition-all duration-300 shadow-lg hover:shadow-green-500/30 w-full sm:w-auto"
               >
-                Quero mais informações
+                Realizar um orçamento
               </Link>
             </div>
 
@@ -77,7 +76,7 @@ export default function Hero() {
                 </div>
                 <div className="text-left">
                   <div className="font-bold text-white leading-none">+40</div>
-                  <span className="text-xs text-white/60">Empresas</span>
+                  <span className="text-xs text-white/60">Clientes</span>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -85,8 +84,8 @@ export default function Hero() {
                   <TrendingUp className="w-5 h-5 text-white" />
                 </div>
                 <div className="text-left">
-                  <div className="font-bold text-white leading-none">+300%</div>
-                  <span className="text-xs text-white/60">Vendas</span>
+                  <div className="font-bold text-white leading-none">15M</div>
+                  <span className="text-xs text-white/60">Movimentados</span>
                 </div>
               </div>
               <div className="flex items-center gap-3">

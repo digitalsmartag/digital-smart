@@ -1,24 +1,35 @@
-import Link from "next/link";
-import { Target, Globe, Share2, ArrowRight } from "lucide-react";
+import { Target, Globe, Share2, ImageIcon, Bot, GraduationCap } from "lucide-react";
 
 const services = [
   {
     icon: Target,
     title: "Tráfego Pago",
     description: "Campanhas estratégicas no Google Ads, Meta Ads e outras plataformas para atrair clientes qualificados e aumentar suas vendas de forma previsível.",
-    href: "/servicos/trafego-pago",
   },
   {
     icon: Globe,
     title: "Sites e Landing Pages",
     description: "Desenvolvimento de sites profissionais e landing pages de alta conversão, otimizados para SEO e focados em resultados.",
-    href: "/servicos/sites",
   },
   {
     icon: Share2,
     title: "Gestão de Redes Sociais",
     description: "Estratégia completa de conteúdo, criação de posts e gestão profissional das suas redes sociais para fortalecer sua marca.",
-    href: "/servicos/gestao-redes-sociais",
+  },
+  {
+    icon: ImageIcon,
+    title: "Edições de Imagens e Vídeos",
+    description: "Produção de conteúdo visual de alta qualidade, edição profissional de imagens e vídeos para redes sociais, anúncios e materiais institucionais.",
+  },
+  {
+    icon: Bot,
+    title: "Automações em IA",
+    description: "Implementação de automações inteligentes com inteligência artificial para otimizar processos, atendimento e aumentar a produtividade do seu negócio.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Treinamentos em Marketing",
+    description: "Capacitação completa em marketing digital para você e sua equipe, com metodologias práticas e atualizadas para gerar resultados.",
   },
 ];
 
@@ -41,11 +52,10 @@ export default function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <Link
-              key={service.href}
-              href={service.href}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <div
+              key={index}
               className="group bg-white rounded-xl p-8 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
               {/* Icon */}
@@ -57,28 +67,11 @@ export default function Services() {
               <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#543295] transition-colors">
                 {service.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
+              <p className="text-gray-600 leading-relaxed">
                 {service.description}
               </p>
-
-              {/* Link */}
-              <div className="flex items-center font-semibold text-[#543295]">
-                <span>Saiba mais</span>
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" />
-              </div>
-            </Link>
+            </div>
           ))}
-        </div>
-
-        {/* CTA */}
-        <div className="mt-16 text-center">
-          <Link
-            href="/contato"
-            className="inline-flex items-center gap-2 bg-[#543295] hover:bg-[#4a2d85] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:shadow-lg"
-          >
-            Solicitar Orçamento
-            <ArrowRight className="w-5 h-5" />
-          </Link>
         </div>
       </div>
     </section>

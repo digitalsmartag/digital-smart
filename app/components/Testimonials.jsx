@@ -62,7 +62,7 @@ export default function Testimonials() {
             Depoimentos
           </span>
           <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-            O que nossos clientes dizem
+            O que dizem nossos clientes
           </h2>
           <p className="mt-4 text-white/70 max-w-2xl mx-auto text-lg">
             Resultados reais de empresas que confiaram em nosso trabalho

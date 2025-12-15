@@ -21,7 +21,7 @@ const partners = [
 
 const stats = [
   { icon: Building2, value: "+40", label: "Empresas" },
-  { icon: Globe, value: "2", label: "Países" },
+  { icon: Globe, value: "3", label: "Países" },
   { icon: TrendingUp, value: "+300%", label: "Crescimento médio" },
   { icon: Users, value: "100%", label: "Satisfação" },
 ];
@@ -37,10 +37,10 @@ export default function PartnersMarquee() {
             Nossos Parceiros
           </span>
           <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
-            Empresas que confiam em nosso trabalho
+            Conheça algumas das mais de 40 empresas que confiam em nosso trabalho
           </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-lg">
-            Trabalhamos com empresas no Brasil e nos Estados Unidos, 
+            Trabalhamos com empresas no Brasil, Estados Unidos e França, 
             ajudando negócios a alcançarem resultados extraordinários.
           </p>
         </div>
