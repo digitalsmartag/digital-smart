@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import LandingFooter from "../components/LandingFooter";
+import { partners } from "../data/partners";
 import { 
   ArrowRight, 
   CheckCircle, 
@@ -35,7 +36,7 @@ const segments = [
 const metrics = [
   { value: "+300%", label: "Aumento em matrículas", description: "Média de crescimento dos nossos clientes" },
   { value: "-50%", label: "Custo por lead", description: "Redução no custo de aquisição" },
-  { value: "+40", label: "Instituições", description: "Parceiros ativos em todo Brasil" },
+  { value: `+${partners.length}`, label: "Instituições", description: "Parceiros ativos em todo Brasil" },
   { value: "98%", label: "Satisfação", description: "Taxa de renovação de contratos" },
 ];
 

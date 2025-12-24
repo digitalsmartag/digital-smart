@@ -6,6 +6,7 @@ import { z } from "zod";
 import { useState } from "react";
 import Image from "next/image";
 import { Mail, Phone, MapPin, Send, CheckCircle, Loader2, MessageCircle } from "lucide-react";
+import { partners } from "../data/partners";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
@@ -142,7 +143,7 @@ export default function ContatoPage() {
                 <ul className="space-y-3">
                   <li className="flex items-center gap-2 text-gray-600">
                     <CheckCircle className="w-5 h-5 text-[#543295]" />
-                    +40 empresas parceiras
+                    +{partners.length} empresas parceiras
                   </li>
                   <li className="flex items-center gap-2 text-gray-600">
                     <CheckCircle className="w-5 h-5 text-[#543295]" />

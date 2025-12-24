@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Digital Smart | Agência de Marketing Digital",
-  description: "Agência de marketing digital especializada em tráfego pago, sites, landing pages, posts e automações WhatsApp. +40 empresas parceiras no Brasil e EUA.",
+  description: "Agência de marketing digital especializada em tráfego pago, sites, landing pages, posts e automações WhatsApp. +12 empresas parceiras no Brasil e EUA.",
   keywords: "marketing digital, tráfego pago, sites, landing pages, automação whatsapp, agência digital",
 };
 

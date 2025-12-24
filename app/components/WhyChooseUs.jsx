@@ -1,4 +1,5 @@
 import { CheckCircle, Users, Rocket, Shield, HeartHandshake, TrendingUp } from "lucide-react";
+import { partners } from "../data/partners";
 
 const reasons = [
   {
@@ -9,7 +10,7 @@ const reasons = [
   {
     icon: Rocket,
     title: "Resultados Comprovados",
-    description: "Mais de 40 empresas parceiras satisfeitas com nossos serviços e resultados.",
+    description: `Mais de ${partners.length} empresas parceiras satisfeitas com nossos serviços e resultados.`,
   },
   {
     icon: Shield,
@@ -75,7 +76,7 @@ export default function WhyChooseUs() {
         {/* Stats */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-bold text-white">+40</div>
+            <div className="text-4xl md:text-5xl font-bold text-white">+{partners.length}</div>
             <div className="text-white/70 mt-2 text-sm">Empresas Parceiras</div>
           </div>
           <div className="text-center">

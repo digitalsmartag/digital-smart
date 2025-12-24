@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Target, Eye, Diamond, Users, Globe, Award, ArrowRight, TrendingUp, CheckCircle } from "lucide-react";
+import { partners } from "../data/partners";
 
 export const metadata = {
   title: "Sobre Nós | Digital Smart",
@@ -89,7 +90,7 @@ export default function SobrePage() {
               </p>
               <p className="text-gray-600 leading-relaxed">
                 Trabalhamos com empresas no Brasil e nos Estados Unidos, 
-                atendendo mais de 40 parceiros que confiam em nosso trabalho para 
+                atendendo mais de {partners.length} parceiros que confiam em nosso trabalho para 
                 alcançar seus objetivos de marketing e vendas.
               </p>
             </div>
@@ -97,7 +98,7 @@ export default function SobrePage() {
             <div className="bg-gradient-to-br from-[#543295]/5 to-[#543295]/10 rounded-3xl p-8">
               <div className="grid grid-cols-2 gap-6">
                 <div className="bg-white rounded-2xl p-6 text-center shadow-sm">
-                  <div className="text-4xl font-bold text-[#543295] mb-2">+40</div>
+                  <div className="text-4xl font-bold text-[#543295] mb-2">+{partners.length}</div>
                   <div className="text-gray-600 text-sm">Empresas Parceiras</div>
                 </div>
                 <div className="bg-white rounded-2xl p-6 text-center shadow-sm">

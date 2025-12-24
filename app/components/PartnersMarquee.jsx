@@ -1,34 +1,18 @@
 import { Building2, Users, TrendingUp, Globe } from "lucide-react";
-
-// Empresas parceiras com iniciais para criar logos estilizados
-const partners = [
-  { name: "TechCorp", initials: "TC", color: "bg-blue-500" },
-  { name: "InnovateBR", initials: "IB", color: "bg-emerald-500" },
-  { name: "GlobalTech", initials: "GT", color: "bg-purple-500" },
-  { name: "StartupHub", initials: "SH", color: "bg-orange-500" },
-  { name: "DigiFlow", initials: "DF", color: "bg-cyan-500" },
-  { name: "CloudMax", initials: "CM", color: "bg-indigo-500" },
-  { name: "DataPro", initials: "DP", color: "bg-rose-500" },
-  { name: "WebMaster", initials: "WM", color: "bg-teal-500" },
-  { name: "AppGenius", initials: "AG", color: "bg-amber-500" },
-  { name: "MarketPro", initials: "MP", color: "bg-violet-500" },
-  { name: "GrowthLab", initials: "GL", color: "bg-lime-500" },
-  { name: "BrandUp", initials: "BU", color: "bg-pink-500" },
-  { name: "LeadGen", initials: "LG", color: "bg-sky-500" },
-  { name: "ConvertMax", initials: "CX", color: "bg-red-500" },
-  { name: "DigitalEdge", initials: "DE", color: "bg-fuchsia-500" },
-];
-
-const stats = [
-  { icon: Building2, value: "+40", label: "Empresas" },
-  { icon: Globe, value: "3", label: "Países" },
-  { icon: TrendingUp, value: "+300%", label: "Crescimento médio" },
-  { icon: Users, value: "100%", label: "Satisfação" },
-];
+import Image from "next/image";
+import { partners } from "../data/partners";
 
 export default function PartnersMarquee() {
+  const stats = [
+    { icon: Building2, value: `+${partners.length}`, label: "Empresas" },
+    { icon: Globe, value: "3", label: "Países" },
+    { icon: TrendingUp, value: "+300%", label: "Crescimento médio" },
+    { icon: Users, value: "100%", label: "Satisfação" },
+  ];
+
   return (
     <section className="py-20 lg:py-28 bg-white overflow-hidden">
+      
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -67,10 +51,7 @@ export default function PartnersMarquee() {
 
         {/* Marquee Container */}
         <div className="relative pause-on-hover">
-          {/* Gradient Overlays */}
-          <div className="absolute max-lg:-left-5 left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute max-lg:-right-5 right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-
+          
           {/* First Row - Scrolling Left */}
           <div className="flex animate-scroll mb-4">
             {[...partners, ...partners].map((partner, index) => (
@@ -78,13 +59,15 @@ export default function PartnersMarquee() {
                 key={`row1-${index}`}
                 className="flex-shrink-0 mx-2 md:mx-3"
               >
-                <div className="flex items-center gap-3 bg-gray-50 hover:bg-white rounded-2xl px-5 py-4 border border-gray-100 hover:border-[#543295]/30 hover:shadow-lg transition-all duration-300 group">
-                  <div className={`w-10 h-10 ${partner.color} rounded-xl flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform duration-300`}>
-                    {partner.initials}
+                <div className="bg-white rounded-2xl px-6 py-4 border border-gray-100 hover:border-[#543295]/30 hover:shadow-lg transition-all duration-300 group">
+                  <div className="relative w-32 h-16 md:w-40 md:h-20 flex items-center justify-center">
+                    <Image
+                      src={partner.logo}
+                      alt={partner.name}
+                      fill
+                      className="object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                    />
                   </div>
-                  <span className="text-gray-700 font-medium whitespace-nowrap">
-                    {partner.name}
-                  </span>
                 </div>
               </div>
             ))}
@@ -97,13 +80,15 @@ export default function PartnersMarquee() {
                 key={`row2-${index}`}
                 className="flex-shrink-0 mx-2 md:mx-3"
               >
-                <div className="flex items-center gap-3 bg-gray-50 hover:bg-white rounded-2xl px-5 py-4 border border-gray-100 hover:border-[#543295]/30 hover:shadow-lg transition-all duration-300 group">
-                  <div className={`w-10 h-10 ${partner.color} rounded-xl flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform duration-300`}>
-                    {partner.initials}
+                <div className="bg-white rounded-2xl px-6 py-4 border border-gray-100 hover:border-[#543295]/30 hover:shadow-lg transition-all duration-300 group">
+                  <div className="relative w-32 h-16 md:w-40 md:h-20 flex items-center justify-center">
+                    <Image
+                      src={partner.logo}
+                      alt={partner.name}
+                      fill
+                      className="object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                    />
                   </div>
-                  <span className="text-gray-700 font-medium whitespace-nowrap">
-                    {partner.name}
-                  </span>
                 </div>
               </div>
             ))}
@@ -117,14 +102,19 @@ export default function PartnersMarquee() {
               {partners.slice(0, 4).map((partner, index) => (
                 <div 
                   key={index}
-                  className={`w-8 h-8 ${partner.color} rounded-full border-2 border-[#543295] flex items-center justify-center text-white text-xs font-bold`}
+                  className="relative w-8 h-8 rounded-full border-2 border-[#543295] bg-white overflow-hidden"
                 >
-                  {partner.initials}
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    fill
+                    className="object-contain p-0.5"
+                  />
                 </div>
               ))}
             </div>
             <span className="text-sm font-medium">
-              Junte-se a mais de 40 empresas satisfeitas
+              Junte-se a mais de {partners.length} empresas satisfeitas
             </span>
           </div>
         </div>

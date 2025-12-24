@@ -2,27 +2,31 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, TrendingUp, Users, Star } from "lucide-react";
+import { ArrowRight, TrendingUp, Users, Star, Sparkles, Award } from "lucide-react";
+import { partners } from "../data/partners";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#543295]">
-      {/* Background gradient layers */}
-      <div className="absolute inset-0 bg-[#543295]" />
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#543295] via-[#4a2d85] to-[#3d2570]">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-700" />
+        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+      </div>
       
-      {/* Subtle texture overlay */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] bg-[size:40px_40px]" />
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:50px_50px]" />
       </div>
 
       {/* Main content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center lg:items-end min-h-screen">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-screen py-20 lg:py-0">
           
           {/* Mobile Image - Aparece primeiro no mobile */}
-          <div className="lg:hidden relative w-full flex justify-center mt-24 -mb-12 z-0">
+          <div className="lg:hidden relative w-full flex justify-center mt-8 -mb-12 z-0">
             <div className="relative w-[85%] max-w-[320px]">
-              {/* Gradiente inferior para fusão suave com o conteúdo */}
               <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#543295] from-[40%] to-transparent z-10 pointer-events-none" />
               <Image
                 src="/root/maxsuel-perfil.webp"
@@ -43,81 +47,99 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Left Content (Texto) */}
-          <div className="flex flex-col justify-center py-10 lg:py-20 lg:pt-32 lg:pb-40 relative z-10 w-full text-center lg:text-left">
+          {/* Left Content (Texto) - 7 colunas no desktop */}
+          <div className="lg:col-span-7 flex flex-col justify-center relative z-10 w-full text-center lg:text-left">
             
+            {/* Badge superior */}
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6 w-fit mx-auto lg:mx-0">
+              <Sparkles className="w-4 h-4 text-yellow-400" />
+              <span className="text-white/90 text-sm font-medium">Agência de Marketing Digital</span>
+            </div>
 
             {/* Main Heading */}
-            <h1 className="text-3xl sm:text-4xl lg:text-7xl max-lg:absolute max-lg:-top-28 font-bold text-white leading-[1.2] lg:leading-[1.1] mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[5.5rem] max-lg:absolute max-lg:-top-28 font-bold text-white leading-[1.1] mb-6">
               Acelere o crescimento do seu{" "}
               <span className="text-white">negócio</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg lg:text-xl text-white/80 max-w-lg max-lg:absolute max-lg:-top-8 mx-auto lg:mx-0 leading-relaxed mb-8 lg:mb-10">
+            <p className="text-base sm:text-lg lg:text-xl text-white/70 max-w-2xl max-lg:absolute max-lg:-top-8 mx-auto lg:mx-0 leading-relaxed mb-8">
               Somos especialistas em marketing digital com foco em resultados com soluções em Tráfego pago, sites e landing pages de alta conversão, gestão estratégica de redes sociais, edições em imagens e vídeos de alta qualidade, treinamentos em marketing, automações em IA e muito mais..
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-10 max-lg:mt-14 lg:mb-12 w-full">
+            <div className="flex flex-col sm:flex-row gap-4 mb-10 max-lg:mt-14 lg:mb-12">
               <Link
                 href="/contato"
-                className="group inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg uppercase tracking-wide transition-all duration-300 shadow-lg hover:shadow-green-500/30 w-full sm:w-auto"
+                className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:scale-105"
               >
-                Realizar um orçamento
+                Solicitar Orçamento
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                href="/sobre"
+                className="group inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300"
+              >
+                Conheça a Digital Smart
               </Link>
             </div>
 
-            {/* Stats row - Mobile: Logos/Icons centered */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-6 lg:gap-12 pt-6 lg:pt-8 border-t border-white/10 lg:border-white/20">
-              <div className="flex items-center gap-3">
-                <div className="bg-white/10 p-2 rounded-full">
+            {/* Stats row */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-6 lg:gap-8 pt-6 lg:pt-8 border-t border-white/10">
+              <div className="flex items-center gap-3 group">
+                <div className="bg-white/10 backdrop-blur-sm p-3 rounded-xl border border-white/20 group-hover:bg-white/20 transition-all">
                   <Users className="w-5 h-5 text-white" />
                 </div>
                 <div className="text-left">
-                  <div className="font-bold text-white leading-none">+40</div>
-                  <span className="text-xs text-white/60">Clientes</span>
+                  <div className="font-bold text-white text-xl leading-none">+{partners.length}</div>
+                  <span className="text-sm text-white/60">Clientes Ativos</span>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="bg-white/10 p-2 rounded-full">
-                  <TrendingUp className="w-5 h-5 text-white" />
+              <div className="flex items-center gap-3 group">
+                <div className="bg-white/10 backdrop-blur-sm p-3 rounded-xl border border-white/20 group-hover:bg-white/20 transition-all">
+                  <TrendingUp className="w-5 h-5 text-green-400" />
                 </div>
                 <div className="text-left">
-                  <div className="font-bold text-white leading-none">15M</div>
-                  <span className="text-xs text-white/60">Movimentados</span>
+                  <div className="font-bold text-white text-xl leading-none">R$ 15M</div>
+                  <span className="text-sm text-white/60">Movimentados</span>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                 <div className="bg-white/10 p-2 rounded-full">
+              <div className="flex items-center gap-3 group">
+                <div className="bg-white/10 backdrop-blur-sm p-3 rounded-xl border border-white/20 group-hover:bg-white/20 transition-all">
                   <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
                 </div>
                 <div className="text-left">
-                  <div className="font-bold text-white leading-none">5.0</div>
-                  <span className="text-xs text-white/60">Google</span>
+                  <div className="font-bold text-white text-xl leading-none">5.0</div>
+                  <span className="text-sm text-white/60">Avaliação Google</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Desktop Image - Mantém layout lateral */}
-          <div className="relative hidden lg:flex items-end justify-end self-end h-full">
+          {/* Desktop Image - 5 colunas no desktop */}
+          <div className="lg:col-span-5 relative hidden lg:flex items-end justify-center h-full pb-0">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-t from-[#543295] to-[30%] to-transparent z-10 pointer-events-none" />              
+              {/* Glow effects */}
+              <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-purple-500/20 rounded-full blur-3xl" />
+              <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-blue-500/20 rounded-full blur-3xl" />
+              
+              {/* Decorative circle */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] border border-white/10 rounded-full" />
+              
               <Image
                 src="/root/maxsuel-perfil.webp"
                 alt="Maxsuel Moreira - CEO Digital Smart"
-                width={550}
-                height={700}
-                className="w-[450px] xl:w-[520px] h-auto object-contain relative"
+                width={900}
+                height={1100}
+                className="min-w-[550px] w-[650px] xl:w-[750px] h-auto object-contain object-bottom relative z-20"
                 priority
               />
               
-              {/* Identificação Desktop */}
-              <div className="absolute bottom-12 left-0 z-20">
-                <div className="bg-white/10 backdrop-blur-md pl-5 pr-6 py-3 rounded-full border border-white/20 border-l-0">
+              {/* Badge flutuante - CEO */}
+              <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-30 animate-float">
+                <div className="bg-white/10 backdrop-blur-md px-6 py-3 rounded-2xl border border-white/20 shadow-2xl">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
                       <span className="text-white font-bold text-lg">M</span>
                     </div>
                     <div>
@@ -127,6 +149,8 @@ export default function Hero() {
                   </div>
                 </div>
               </div>
+
+              
             </div>
           </div>
 

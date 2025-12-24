@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mail, Phone, MapPin, Instagram, Facebook, Linkedin, ArrowRight } from "lucide-react";
+import { partners } from "../data/partners";
 
 const services = [
   { name: "Tráfego Pago", href: "/servicos/trafego-pago" },
@@ -145,7 +146,7 @@ export default function Footer() {
               reservados.
             </p>
             <p className="text-gray-500 text-sm">
-              +40 empresas parceiras no Brasil e EUA
+              +{partners.length} empresas parceiras no Brasil e EUA
             </p>
           </div>
         </div>
