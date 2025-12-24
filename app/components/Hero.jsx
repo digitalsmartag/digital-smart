@@ -7,27 +7,24 @@ import { partners } from "../data/partners";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#543295] via-[#4a2d85] to-[#3d2570]">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-700" />
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-      </div>
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#543295] via-[#4a2d85] to-[#3d2570]">
       
+
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:50px_50px]" />
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-0 sm:px-6 lg:px-8">
+
         <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-screen py-20 lg:py-0">
-          
+
           {/* Mobile Image - Aparece primeiro no mobile */}
           <div className="lg:hidden relative w-full flex justify-center mt-8 -mb-12 z-0">
+            <div className="absolute -bottom-20 w-full left-0 right-0 h-40  bg-gradient-to-t via-60% from-transparent  via-[#543295] to-transparent z-10 pointer-events-none" />
+
             <div className="relative w-[85%] max-w-[320px]">
-              <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#543295] from-[40%] to-transparent z-10 pointer-events-none" />
               <Image
                 src="/root/maxsuel-perfil.webp"
                 alt="Maxsuel Moreira - CEO Digital Smart"
@@ -36,7 +33,7 @@ export default function Hero() {
                 className="w-full h-auto object-contain mt-6"
                 priority
               />
-              
+
               {/* Identificação Mobile */}
               <div className="absolute bottom-54 right-1/5 translate-x-1/2 z-20">
                 <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
@@ -49,26 +46,26 @@ export default function Hero() {
 
           {/* Left Content (Texto) - 7 colunas no desktop */}
           <div className="lg:col-span-7 flex flex-col justify-center relative z-10 w-full text-center lg:text-left">
-            
+
             {/* Badge superior */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6 w-fit mx-auto lg:mx-0">
+            <div className="inline-flex items-center max-lg:hidden gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6 w-fit mx-auto lg:mx-0">
               <Sparkles className="w-4 h-4 text-yellow-400" />
               <span className="text-white/90 text-sm font-medium">Agência de Marketing Digital</span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[5.5rem] max-lg:absolute max-lg:-top-28 font-bold text-white leading-[1.1] mb-6">
+            <h1 className="text-[2rem] sm:text-5xl lg:text-6xl xl:text-[5.5rem] max-lg:px-5 max-lg:absolute max-lg:-top-8 font-bold text-white leading-[1.1] mb-6">
               Acelere o crescimento do seu{" "}
               <span className="text-white">negócio</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg lg:text-xl text-white/70 max-w-2xl max-lg:absolute max-lg:-top-8 mx-auto lg:mx-0 leading-relaxed mb-8">
+            <p className="text-base sm:text-lg lg:text-xl max-lg:px-5 text-white/70 max-w-2xl max-lg:absolute max-lg:top-14 mx-auto lg:mx-0 leading-relaxed mb-8">
               Somos especialistas em marketing digital com foco em resultados com soluções em Tráfego pago, sites e landing pages de alta conversão, gestão estratégica de redes sociais, edições em imagens e vídeos de alta qualidade, treinamentos em marketing, automações em IA e muito mais..
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-10 max-lg:mt-14 lg:mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 mb-10 max-lg:mt-60 lg:mb-12 max-lg:px-5">
               <Link
                 href="/contato"
                 className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:scale-105"
@@ -122,10 +119,10 @@ export default function Hero() {
               {/* Glow effects */}
               <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-purple-500/20 rounded-full blur-3xl" />
               <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-blue-500/20 rounded-full blur-3xl" />
-              
+
               {/* Decorative circle */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] border border-white/10 rounded-full" />
-              
+
               <Image
                 src="/root/maxsuel-perfil.webp"
                 alt="Maxsuel Moreira - CEO Digital Smart"
@@ -134,7 +131,7 @@ export default function Hero() {
                 className="min-w-[550px] w-[650px] xl:w-[750px] h-auto object-contain object-bottom relative z-20"
                 priority
               />
-              
+
               {/* Badge flutuante - CEO */}
               <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-30 animate-float">
                 <div className="bg-white/10 backdrop-blur-md px-6 py-3 rounded-2xl border border-white/20 shadow-2xl">
@@ -150,7 +147,7 @@ export default function Hero() {
                 </div>
               </div>
 
-              
+
             </div>
           </div>
 

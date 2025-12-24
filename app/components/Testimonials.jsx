@@ -1,4 +1,5 @@
 import { Star, Quote } from "lucide-react";
+import { partners } from "../data/partners";
 
 const testimonials = [
   {
@@ -127,7 +128,7 @@ export default function Testimonials() {
                 ))}
                 <span className="text-white font-bold ml-2">5.0</span>
               </div>
-              <div className="text-white/60 text-sm">Avaliação média de +40 clientes</div>
+              <div className="text-white/60 text-sm">Avaliação média de {partners.length} clientes</div>
             </div>
           </div>
         </div>
