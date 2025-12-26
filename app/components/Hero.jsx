@@ -7,7 +7,7 @@ import { partners } from "../data/partners";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#543295] via-[#4a2d85] to-[#3d2570]">
+    <section className="relative min-h-screen  min-w-[375px] max-lg:min-h-[1200px]  overflow-hidden bg-gradient-to-b from-[#543295] via-[#4a2d85] to-[#3d2570]">
       
 
       {/* Grid pattern overlay */}
@@ -18,7 +18,7 @@ export default function Hero() {
       {/* Main content */}
       <div className="relative z-10 mx-auto max-w-7xl px-0 sm:px-6 lg:px-8">
 
-        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-screen py-20 lg:py-0">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-screen max-lg:min-h-screen max-lg:flex-col max-lg:justify-start max-lg:py-8">
 
           {/* Mobile Image - Aparece primeiro no mobile */}
           <div className="lg:hidden relative w-full flex justify-center mt-8 -mb-12 z-0">
@@ -54,18 +54,19 @@ export default function Hero() {
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-[2rem] sm:text-5xl lg:text-6xl xl:text-[5.5rem] max-lg:px-5 max-lg:absolute max-lg:-top-8 font-bold text-white leading-[1.1] mb-6">
+            <div className="max-lg:px-5 max-lg:absolute max-lg:-top-[5%] ">
+              <h1 className="text-[2rem] sm:text-5xl lg:text-6xl xl:text-[5.5rem] font-bold text-white leading-[1.1] mb-6">
               Acelere o crescimento do seu{" "}
               <span className="text-white">negócio</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg lg:text-xl max-lg:px-5 text-white/70 max-w-2xl max-lg:absolute max-lg:top-14 mx-auto lg:mx-0 leading-relaxed mb-8">
+            <p className="text-base sm:text-lg lg:text-xl max-lg:px-5 text-white/70 max-w-2xl  mx-auto lg:mx-0 leading-relaxed mb-8">
               Somos especialistas em marketing digital com foco em resultados com soluções em Tráfego pago, sites e landing pages de alta conversão, gestão estratégica de redes sociais, edições em imagens e vídeos de alta qualidade, treinamentos em marketing, automações em IA e muito mais..
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-10 max-lg:mt-60 lg:mb-12 max-lg:px-5">
+            <div className="flex flex-col sm:flex-row gap-4 mb-6  lg:mb-12 max-lg:px-5">
               <Link
                 href="/contato"
                 className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:scale-105"
@@ -80,8 +81,6 @@ export default function Hero() {
                 Conheça a Digital Smart
               </Link>
             </div>
-
-            {/* Stats row */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-6 lg:gap-8 pt-6 lg:pt-8 border-t border-white/10">
               <div className="flex items-center gap-3 group">
                 <div className="bg-white/10 backdrop-blur-sm p-3 rounded-xl border border-white/20 group-hover:bg-white/20 transition-all">
@@ -111,6 +110,10 @@ export default function Hero() {
                 </div>
               </div>
             </div>
+            </div>
+
+            {/* Stats row */}
+            
           </div>
 
           {/* Desktop Image - 5 colunas no desktop */}
