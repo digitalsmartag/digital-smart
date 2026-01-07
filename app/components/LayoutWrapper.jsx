@@ -16,11 +16,12 @@ const landingPages = [
 export default function LayoutWrapper({ children }) {
   const pathname = usePathname();
   
-  // Verifica se é uma landing page
+  // Verifica se é uma landing page ou página admin
   const isLandingPage = landingPages.some(route => pathname.startsWith(route));
+  const isAdminPage = pathname.startsWith("/admin");
 
-  if (isLandingPage) {
-    // Landing pages: sem header/footer global, sem botão WhatsApp flutuante
+  if (isLandingPage || isAdminPage) {
+    // Landing pages e admin: sem header/footer global, sem botão WhatsApp flutuante
     return <main>{children}</main>;
   }
 

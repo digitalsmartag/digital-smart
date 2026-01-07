@@ -1,0 +1,1 @@
+ALTER TABLE `leads` ADD `converted_at` integer;

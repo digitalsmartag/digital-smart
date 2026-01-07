@@ -7,6 +7,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Mail, Phone, MapPin, Send, CheckCircle, Loader2, MessageCircle } from "lucide-react";
 import { partners } from "../data/partners";
+import { createLead } from "../admin/_data/leads";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
@@ -41,9 +42,27 @@ export default function ContatoPage() {
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
-    // Simular envio
+    try {
+      const newLead = await createLead(data);
+      try {
+        const response = await fetch('/admin/api/events/notify', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            type: 'lead_created',
+            data: newLead,
+            timestamp: new Date().toISOString()
+          }),
+        });
+      } catch (sseError) {
+        console.error('Erro ao notificar SSE:', sseError);
+      }
+    } catch (error) {
+      console.error("Erro ao criar lead:", error);
+    }
     await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log("Form data:", data);
     setIsSubmitting(false);
     setIsSubmitted(true);
     reset();

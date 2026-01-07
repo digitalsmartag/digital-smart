@@ -1,0 +1,1 @@
+ALTER TABLE `leads` ADD `loss_reason` text;

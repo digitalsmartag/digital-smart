@@ -1,4 +1,6 @@
 import { Building, Target, Calendar, Award } from "lucide-react";
+import { partners } from "../data/partners";
+import Image from "next/image";
 
 const highlights = [
   {
@@ -8,8 +10,8 @@ const highlights = [
   },
   {
     icon: Building,
-    value: "+40",
-    label: "Empresas atendidas",
+    value: `+${partners.length}`,
+    label: "Parceiros",
   },
   {
     icon: Target,
@@ -30,6 +32,27 @@ export default function AboutUs() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
           <div>
+            {/* Logo da Digital Smart */}
+            <div className="mb-8 relative">
+              <div className="inline-block relative">
+                {/* Glow effect atrás da logo */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#543295] to-purple-600 blur-2xl opacity-20 rounded-3xl" />
+                
+                {/* Container da logo */}
+                <div className="relative bg-gradient-to-br from-[#543295] to-[#6b46c1] p-8 rounded-3xl shadow-2xl border border-white/10">
+                  <div className="relative w-48 h-24">
+                    <Image
+                      src="/root/logo-branca.png"
+                      alt="Digital Smart Logo"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <span className="inline-flex items-center gap-2 text-[#543295] font-semibold text-sm uppercase tracking-wider bg-[#543295]/10 px-4 py-2 rounded-full">
               Sobre Nós
             </span>

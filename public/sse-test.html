@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SSE Test</title>
+</head>
+<body>
+    <h1>Teste SSE</h1>
+    <div id="messages"></div>
+    
+    <script>
+        const messages = document.getElementById('messages');
+        
+        console.log('🧪 Iniciando teste SSE...');
+        
+        const eventSource = new EventSource('/admin/api/events');
+        
+        eventSource.onopen = function() {
+            console.log('🔌 SSE: Conexão aberta');
+            messages.innerHTML += '<p>🔌 Conexão aberta</p>';
+        };
+        
+        eventSource.onmessage = function(event) {
+            console.log('📡 SSE: Mensagem recebida:', event.data);
+            messages.innerHTML += '<p>📡 ' + event.data + '</p>';
+        };
+        
+        eventSource.onerror = function(error) {
+            console.error('❌ SSE: Erro:', error);
+            messages.innerHTML += '<p>❌ Erro na conexão</p>';
+        };
+    </script>
+</body>
+</html>

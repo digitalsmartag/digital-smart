@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { Star, Quote } from "lucide-react";
 import { partners } from "../data/partners";
 
@@ -47,6 +50,30 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const [reviews, setReviews] = useState(testimonials);
+  const [loading, setLoading] = useState(true);
+  const [isGoogleReviews, setIsGoogleReviews] = useState(false);
+
+  useEffect(() => {
+    async function fetchGoogleReviews() {
+      try {
+        const response = await fetch('/api/google-reviews');
+        const data = await response.json();
+        
+        if (data.reviews && data.reviews.length > 0) {
+          setReviews(data.reviews);
+          setIsGoogleReviews(!data.fallback);
+        }
+      } catch (error) {
+        console.error('Erro ao buscar avaliações:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchGoogleReviews();
+  }, []);
+
   return (
     <section className="py-20 lg:py-28 bg-[#543295] relative overflow-hidden">
       {/* Background Elements */}
@@ -60,7 +87,7 @@ export default function Testimonials() {
         <div className="text-center mb-16">
           <span className="inline-flex items-center gap-2 text-purple-300 font-semibold text-sm uppercase tracking-wider bg-white/10 px-4 py-2 rounded-full">
             <Star className="w-4 h-4" />
-            Depoimentos
+            {isGoogleReviews ? 'Avaliações do Google' : 'Depoimentos'}
           </span>
           <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl font-bold text-white">
             O que dizem nossos clientes
@@ -72,7 +99,7 @@ export default function Testimonials() {
 
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
+          {reviews.map((testimonial, index) => (
             <div 
               key={index}
               className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/15 transition-all duration-300 group"
@@ -128,7 +155,9 @@ export default function Testimonials() {
                 ))}
                 <span className="text-white font-bold ml-2">5.0</span>
               </div>
-              <div className="text-white/60 text-sm">Avaliação média de {partners.length} clientes</div>
+              <div className="text-white/60 text-sm">
+                {isGoogleReviews ? 'Avaliações verificadas do Google' : `Avaliação média de ${partners.length} clientes`}
+              </div>
             </div>
           </div>
         </div>

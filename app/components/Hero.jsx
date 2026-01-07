@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from 'react';
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, TrendingUp, Users, Star, Sparkles, Award } from "lucide-react";
@@ -7,7 +8,7 @@ import { partners } from "../data/partners";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen  min-w-[375px] max-lg:min-h-[1200px]  overflow-hidden bg-gradient-to-b from-[#543295] via-[#4a2d85] to-[#3d2570]">
+    <section className="relative min-h-screen max-md:min-h-fit  min-w-[375px]  overflow-hidden bg-gradient-to-b from-[#543295] via-[#4a2d85] to-[#3d2570]">
       
 
       {/* Grid pattern overlay */}
@@ -18,24 +19,24 @@ export default function Hero() {
       {/* Main content */}
       <div className="relative z-10 mx-auto max-w-7xl px-0 sm:px-6 lg:px-8">
 
-        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-screen max-lg:min-h-screen max-lg:flex-col max-lg:justify-start max-lg:py-8">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-screen max-md:min-h-fit max-lg:flex-col max-lg:justify-start max-lg:py-8">
 
           {/* Mobile Image - Aparece primeiro no mobile */}
           <div className="lg:hidden relative w-full flex justify-center mt-8 -mb-12 z-0">
-            <div className="absolute -bottom-20 w-full left-0 right-0 h-40  bg-gradient-to-t via-60% from-transparent  via-[#543295] to-transparent z-10 pointer-events-none" />
+            <div className="absolute -bottom-18 w-full left-0 right-0 h-40  bg-gradient-to-t via-60% from-transparent  via-[#543295] to-transparent z-10 pointer-events-none" />
 
-            <div className="relative w-[85%] max-w-[320px]">
+            <div className="relative w-[60vw] max-w-[300px]">
               <Image
                 src="/root/maxsuel-perfil.webp"
                 alt="Maxsuel Moreira - CEO Digital Smart"
                 width={350}
                 height={450}
-                className="w-full h-auto object-contain mt-6"
+                className="w-full h-auto object-contain pt-10"
                 priority
               />
 
               {/* Identificação Mobile */}
-              <div className="absolute bottom-54 right-1/5 translate-x-1/2 z-20">
+              <div className="absolute bottom-40 right-1/5 translate-x-1/2 z-20">
                 <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
                   <p className="text-white font-semibold text-sm">Maxsuel Moreira</p>
                   <p className="text-white/70 text-xs text-center">CEO & Fundador</p>
@@ -45,25 +46,14 @@ export default function Hero() {
           </div>
 
           {/* Left Content (Texto) - 7 colunas no desktop */}
-          <div className="lg:col-span-7 flex flex-col justify-center relative z-10 w-full text-center lg:text-left">
-
-            {/* Badge superior */}
-            <div className="inline-flex items-center max-lg:hidden gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6 w-fit mx-auto lg:mx-0">
-              <Sparkles className="w-4 h-4 text-yellow-400" />
-              <span className="text-white/90 text-sm font-medium">Agência de Marketing Digital</span>
-            </div>
+          <div className="lg:col-span-7 flex flex-col justify-center relative z-10 w-full text-center lg:text-left -mt-12 lg:mt-24">
 
             {/* Main Heading */}
-            <div className="max-lg:px-5 max-lg:absolute max-lg:-top-[5%] ">
-              <h1 className="text-[2rem] sm:text-5xl lg:text-6xl xl:text-[5.5rem] font-bold text-white leading-[1.1] mb-6">
-              Acelere o crescimento do seu{" "}
-              <span className="text-white">negócio</span>
+            <div className="max-lg:px-5  lg:pt-20">
+              <h1 className="text-[1.5rem] sm:text-5xl lg:text-6xl xl:text-[5.5rem] font-bold text-white leading-[1.1] mb-6">
+              Acelere o seu negócio{" "}
+              <span className="text-white">com marketing estratégico e personalizado</span>
             </h1>
-
-            {/* Subtitle */}
-            <p className="text-base sm:text-lg lg:text-xl max-lg:px-5 text-white/70 max-w-2xl  mx-auto lg:mx-0 leading-relaxed mb-8">
-              Somos especialistas em marketing digital com foco em resultados com soluções em Tráfego pago, sites e landing pages de alta conversão, gestão estratégica de redes sociais, edições em imagens e vídeos de alta qualidade, treinamentos em marketing, automações em IA e muito mais..
-            </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-6  lg:mb-12 max-lg:px-5">
@@ -74,42 +64,16 @@ export default function Hero() {
                 Solicitar Orçamento
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link
-                href="/sobre"
-                className="group inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300"
-              >
-                Conheça a Digital Smart
-              </Link>
+              
             </div>
-            <div className="flex flex-wrap justify-center lg:justify-start gap-6 lg:gap-8 pt-6 lg:pt-8 border-t border-white/10">
-              <div className="flex items-center gap-3 group">
-                <div className="bg-white/10 backdrop-blur-sm p-3 rounded-xl border border-white/20 group-hover:bg-white/20 transition-all">
-                  <Users className="w-5 h-5 text-white" />
-                </div>
-                <div className="text-left">
-                  <div className="font-bold text-white text-xl leading-none">+{partners.length}</div>
-                  <span className="text-sm text-white/60">Clientes Ativos</span>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 group">
-                <div className="bg-white/10 backdrop-blur-sm p-3 rounded-xl border border-white/20 group-hover:bg-white/20 transition-all">
-                  <TrendingUp className="w-5 h-5 text-green-400" />
-                </div>
-                <div className="text-left">
-                  <div className="font-bold text-white text-xl leading-none">R$ 15M</div>
-                  <span className="text-sm text-white/60">Movimentados</span>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 group">
-                <div className="bg-white/10 backdrop-blur-sm p-3 rounded-xl border border-white/20 group-hover:bg-white/20 transition-all">
-                  <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-                </div>
-                <div className="text-left">
-                  <div className="font-bold text-white text-xl leading-none">5.0</div>
-                  <span className="text-sm text-white/60">Avaliação Google</span>
-                </div>
-              </div>
-            </div>
+
+            {/* Subtitle */}
+            <p className="text-base sm:text-lg lg:text-xl max-lg:px-3 text-white/70 max-w-2xl max-lg:text-justify  mx-auto lg:mx-0 leading-relaxed mb-8">
+              Somos especialistas em marketing digital com foco em resultados com soluções em Tráfego pago, sites e landing pages de alta conversão, gestão estratégica de redes sociais, edições em imagens e vídeos de alta qualidade, treinamentos em marketing, automações em IA e muito mais..
+            </p>
+
+            
+            
             </div>
 
             {/* Stats row */}

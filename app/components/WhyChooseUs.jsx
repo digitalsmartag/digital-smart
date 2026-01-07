@@ -73,25 +73,7 @@ export default function WhyChooseUs() {
           ))}
         </div>
 
-        {/* Stats */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="text-center">
-            <div className="text-4xl md:text-5xl font-bold text-white">+{partners.length}</div>
-            <div className="text-white/70 mt-2 text-sm">Empresas Parceiras</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl md:text-5xl font-bold text-white">2</div>
-            <div className="text-white/70 mt-2 text-sm">Países Atendidos</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl md:text-5xl font-bold text-white">100%</div>
-            <div className="text-white/70 mt-2 text-sm">Comprometimento</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl md:text-5xl font-bold text-white">24/7</div>
-            <div className="text-white/70 mt-2 text-sm">Suporte</div>
-          </div>
-        </div>
+
       </div>
     </section>
   );

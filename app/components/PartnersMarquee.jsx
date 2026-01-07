@@ -29,25 +29,7 @@ export default function PartnersMarquee() {
           </p>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          {stats.map((stat) => (
-            <div 
-              key={stat.label}
-              className="bg-gray-50 rounded-2xl p-6 text-center hover:bg-[#543295]/5 transition-colors duration-300"
-            >
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-[#543295]/10 rounded-xl mb-4">
-                <stat.icon className="w-6 h-6 text-[#543295]" />
-              </div>
-              <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-1">
-                {stat.value}
-              </div>
-              <div className="text-gray-600 text-sm">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
+       
 
         {/* Marquee Container */}
         <div className="relative pause-on-hover">
@@ -65,7 +47,7 @@ export default function PartnersMarquee() {
                       src={partner.logo}
                       alt={partner.name}
                       fill
-                      className="object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                      className="object-contain lg:grayscale lg:hover:grayscale-0 transition-all duration-300"
                     />
                   </div>
                 </div>
@@ -86,7 +68,7 @@ export default function PartnersMarquee() {
                       src={partner.logo}
                       alt={partner.name}
                       fill
-                      className="object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                      className="object-contain lg:grayscale lg:hover:grayscale-0 transition-all duration-300"
                     />
                   </div>
                 </div>
@@ -114,7 +96,7 @@ export default function PartnersMarquee() {
               ))}
             </div>
             <span className="text-sm font-medium">
-              Junte-se a mais de {partners.length} empresas satisfeitas
+              Junte a gama de empresas satisfeitas conosco
             </span>
           </div>
         </div>
