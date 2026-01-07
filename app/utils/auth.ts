@@ -24,7 +24,7 @@ export async function getSessionWithRole() {
       headers: await headers(),
     });
 
-    const user = sessionResult?.data?.user ?? null;
+    const user = sessionResult?.user ?? null;
 
     // Se não há usuário, retorna a sessão como está
     if (!user?.id) {
@@ -46,12 +46,9 @@ export async function getSessionWithRole() {
       // Retorna a sessão enriquecida com o role
       return {
         ...sessionResult,
-        data: {
-          ...sessionResult.data,
-          user: {
-            ...user,
-            role,
-          },
+        user: {
+          ...user,
+          role,
         },
       };
     } catch (err) {
@@ -59,12 +56,9 @@ export async function getSessionWithRole() {
       // Se falhar, retorna com role padrão
       return {
         ...sessionResult,
-        data: {
-          ...sessionResult.data,
-          user: {
-            ...user,
-            role: "user",
-          },
+        user: {
+          ...user,
+          role: "user",
         },
       };
     }
