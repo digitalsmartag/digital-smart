@@ -252,7 +252,7 @@ export default function Dashboard() {
     { value: 'lost', label: 'Perdido' }
   ];
 
-  const lossReasons = LOSS_REASONS;
+  const lossReasons = [...LOSS_REASONS] as string[];
   // Stats com proteção contra undefined
   const stats = [
     { 

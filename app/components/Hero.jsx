@@ -46,17 +46,17 @@ export default function Hero() {
           </div>
 
           {/* Left Content (Texto) - 7 colunas no desktop */}
-          <div className="lg:col-span-7 flex flex-col justify-center relative z-10 w-full text-center lg:text-left -mt-12 lg:mt-24">
+          <div className="lg:col-span-7 flex flex-col justify-center relative z-10 w-full text-center lg:text-left -mt-12 lg:mt-0">
 
             {/* Main Heading */}
             <div className="max-lg:px-5  lg:pt-20">
-              <h1 className="text-[1.5rem] sm:text-5xl lg:text-6xl xl:text-[5.5rem] font-bold text-white leading-[1.1] mb-6">
+              <h1 className="text-[1.5rem] sm:text-5xl lg:text-6xl xl:text-[5rem] font-bold text-white leading-[1.1] mb-6 lg:mb-12">
               Acelere o seu negócio{" "}
               <span className="text-white">com marketing estratégico e personalizado</span>
             </h1>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-6  lg:mb-12 max-lg:px-5">
+            <div className="flex flex-col sm:flex-row gap-4 mb-6  lg:mb-6 max-lg:px-5">
               <Link
                 href="/contato"
                 className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:scale-105"
