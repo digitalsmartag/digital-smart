@@ -399,25 +399,6 @@ export default function LeadsContent() {
           
         </div>
         <div className="flex items-center gap-3">
-          {/* Botões de teste */}
-          <button 
-            onClick={testWebhook}
-            className="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm transition-colors"
-          >
-            📡 Testar Webhook
-          </button>
-          <button 
-            onClick={testSSEConnection}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg text-sm transition-colors"
-          >
-            🔌 Testar SSE
-          </button>
-          <button 
-            onClick={testCacheInvalidation}
-            className="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-lg text-sm transition-colors"
-          >
-            🧪 Testar Cache
-          </button>
           <ExportButton 
             data={filteredLeads} 
             filename="leads" 
