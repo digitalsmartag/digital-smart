@@ -85,12 +85,11 @@ export default function EducacaoPage() {
             
             {/* Title */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight">
-              Sua escola está <br className="hidden sm:block" />
               <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
-                perdendo matrículas
+                Dominando as Vendas
               </span>
-              <br className="hidden sm:block" />
-              por falta de método?
+              <br />
+              Educacionais
             </h1>
 
             {/* Subtitle */}
