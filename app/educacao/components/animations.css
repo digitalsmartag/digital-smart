@@ -1,0 +1,373 @@
+/* ============================================
+   SWUP ANIMATIONS - Landing Page Educação
+   ============================================ */
+
+/* Page Transition - Fade */
+html.is-changing .transition-main {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html.is-animating .transition-main {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* ============================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================ */
+
+/* Base state for all animated elements */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade Up */
+[data-animate="fade-up"] {
+  opacity: 0;
+  transform: translateY(80px);
+}
+
+[data-animate="fade-up"].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade Down */
+[data-animate="fade-down"] {
+  opacity: 0;
+  transform: translateY(-80px);
+}
+
+[data-animate="fade-down"].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade Left */
+[data-animate="fade-left"] {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+[data-animate="fade-left"].is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fade Right */
+[data-animate="fade-right"] {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+[data-animate="fade-right"].is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale Up */
+[data-animate="scale-up"] {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+[data-animate="scale-up"].is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Scale Down */
+[data-animate="scale-down"] {
+  opacity: 0;
+  transform: scale(1.2);
+}
+
+[data-animate="scale-down"].is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Rotate In */
+[data-animate="rotate-in"] {
+  opacity: 0;
+  transform: rotate(-10deg) scale(0.9);
+}
+
+[data-animate="rotate-in"].is-visible {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+/* Flip Up */
+[data-animate="flip-up"] {
+  opacity: 0;
+  transform: perspective(1000px) rotateX(45deg) translateY(50px);
+}
+
+[data-animate="flip-up"].is-visible {
+  opacity: 1;
+  transform: perspective(1000px) rotateX(0) translateY(0);
+}
+
+/* Blur In */
+[data-animate="blur-in"] {
+  opacity: 0;
+  filter: blur(20px);
+  transform: scale(1.1);
+}
+
+[data-animate="blur-in"].is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+/* Slide Reveal */
+[data-animate="slide-reveal"] {
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+}
+
+[data-animate="slide-reveal"].is-visible {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+  transition: opacity 0.6s ease, clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Bounce In */
+[data-animate="bounce-in"] {
+  opacity: 0;
+  transform: scale(0.3);
+}
+
+[data-animate="bounce-in"].is-visible {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.4s ease,
+              transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Stagger children animations */
+[data-animate-stagger] > * {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-animate-stagger].is-visible > *:nth-child(1) { transition-delay: 0.1s; }
+[data-animate-stagger].is-visible > *:nth-child(2) { transition-delay: 0.2s; }
+[data-animate-stagger].is-visible > *:nth-child(3) { transition-delay: 0.3s; }
+[data-animate-stagger].is-visible > *:nth-child(4) { transition-delay: 0.4s; }
+[data-animate-stagger].is-visible > *:nth-child(5) { transition-delay: 0.5s; }
+[data-animate-stagger].is-visible > *:nth-child(6) { transition-delay: 0.6s; }
+
+[data-animate-stagger].is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   DELAY MODIFIERS
+   ============================================ */
+
+[data-delay="100"] { transition-delay: 0.1s !important; }
+[data-delay="200"] { transition-delay: 0.2s !important; }
+[data-delay="300"] { transition-delay: 0.3s !important; }
+[data-delay="400"] { transition-delay: 0.4s !important; }
+[data-delay="500"] { transition-delay: 0.5s !important; }
+[data-delay="600"] { transition-delay: 0.6s !important; }
+[data-delay="700"] { transition-delay: 0.7s !important; }
+[data-delay="800"] { transition-delay: 0.8s !important; }
+
+/* ============================================
+   DURATION MODIFIERS
+   ============================================ */
+
+[data-duration="fast"] { transition-duration: 0.4s !important; }
+[data-duration="normal"] { transition-duration: 0.6s !important; }
+[data-duration="slow"] { transition-duration: 1s !important; }
+[data-duration="slower"] { transition-duration: 1.4s !important; }
+
+/* ============================================
+   SPECIAL EFFECTS
+   ============================================ */
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse Glow */
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.6), 0 0 60px rgba(139, 92, 246, 0.3);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Gradient Shift */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Bounce */
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+/* Spin Slow */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Text Reveal */
+@keyframes text-reveal {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.animate-text-reveal {
+  animation: text-reveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* Counter Animation */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-count {
+  animation: count-up 0.6s ease-out forwards;
+}
+
+/* ============================================
+   HERO SPECIFIC ANIMATIONS
+   ============================================ */
+
+.hero-title {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: hero-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.hero-subtitle {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: hero-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+.hero-text {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: hero-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+}
+
+.hero-cta {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  animation: hero-cta-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+}
+
+@keyframes hero-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-cta-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ============================================
+   CARD HOVER EFFECTS
+   ============================================ */
+
+.card-hover {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
+}
+
+/* ============================================
+   PROGRESS BAR (Swup Plugin)
+   ============================================ */
+
+.swup-progress-bar {
+  height: 3px;
+  background: linear-gradient(90deg, #8b5cf6, #6366f1);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
