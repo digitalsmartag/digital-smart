@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, Check, Shield, Star } from "lucide-react";
+import { HiArrowRight, HiCheckCircle, HiShieldCheck, HiStar } from "react-icons/hi2";
 import SwupProvider from "./components/SwupProvider";
 import FAQ from "./components/FAQ";
 import "./components/animations.css";
@@ -69,7 +69,7 @@ export default function EducacaoPage() {
               </div>
 
               {/* Title */}
-              <h1 data-animate="fade-up" data-delay="100" className="text-3xl sm:text-4xl font-black leading-[1.1] tracking-tight">
+              <h1 data-animate="fade-up" data-delay="100" className="text-5xl sm:text-4xl font-black leading-[1.1] tracking-tight">
                 <span className="text-white">Dominando as</span>
                 <br />
                 <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
@@ -91,14 +91,14 @@ export default function EducacaoPage() {
                   className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-indigo-600 px-6 py-3.5 rounded-full font-bold text-sm transition-all duration-300"
                 >
                   Quero começar agora
-                  <ArrowRight className="w-4 h-4" />
+                  <HiArrowRight className="w-4 h-4" />
                 </a>
               </div>
 
               {/* Trust indicators - Mobile */}
               <div data-animate="fade-up" data-delay="400" className="mt-6 flex items-center gap-4 text-xs text-zinc-400">
                 <div className="flex items-center gap-1.5">
-                  <Shield className="w-3.5 h-3.5 text-green-400" />
+                  <HiShieldCheck className="w-3.5 h-3.5 text-green-400" />
                   <span>7 dias garantia</span>
                 </div>
                 
@@ -120,7 +120,7 @@ export default function EducacaoPage() {
                   </div>
 
                   {/* Title */}
-                  <h1 data-animate="fade-up" data-delay="100" className="text-5xl xl:text-6xl font-black leading-[1.05] tracking-tight">
+                  <h1 data-animate="fade-up" data-delay="100" className="text-6xl xl:text-7xl font-black leading-[1.05] tracking-tight">
                     <span className="text-white">Dominando as</span>
                     <br />
                     <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
@@ -142,7 +142,7 @@ export default function EducacaoPage() {
                       className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-violet-600 to-indigo-600 px-8 py-4 rounded-full font-bold text-base transition-all duration-300 hover:shadow-2xl hover:shadow-violet-500/30 hover:scale-105"
                     >
                       Quero começar agora
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      <HiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </a>
                   </div>
                 </div>
@@ -171,9 +171,11 @@ export default function EducacaoPage() {
             </div>
           </div>
 
+          {/* Gradient fade no final da hero - transição suave */}
+          <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#0d0d0d] to-transparent z-20 pointer-events-none" />
         </section>
 
-        {/* MARQUEE TEXT SLIDER */}
+        {/* MARQUEE TEXT SLIDER
         <div className="py-8 border-y border-white/5 overflow-hidden ">
           <div className="flex animate-marquee whitespace-nowrap">
             {[...Array(4)].map((_, i) => (
@@ -182,7 +184,7 @@ export default function EducacaoPage() {
               </span>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* ============================================
             SEÇÃO 2 — Para quem é este curso
@@ -206,7 +208,7 @@ export default function EducacaoPage() {
                     className="flex items-start gap-4 bg-gradient-to-r from-white/5 to-transparent border border-white/5 rounded-2xl p-5 card-hover"
                   >
                     <div className="w-8 h-8 bg-violet-500/20 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
-                      <Check className="w-5 h-5 text-violet-400" />
+                      <HiCheckCircle className="w-5 h-5 text-violet-400" />
                     </div>
                     <p className="text-zinc-300 text-lg">{item}</p>
                   </div>
@@ -329,24 +331,24 @@ export default function EducacaoPage() {
             SEÇÃO 5 — Quem será seu mentor
             ============================================ */}
         <section className="py-24 lg:py-32 bg-[#0a0a0a]">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="container mx-auto px-4 lg:px-8 flex flex-col items-center w-full">
+            <div className="grid lg:grid-cols-2 gap-16 items-center max-w-5xl">
               {/* Left - Photo */}
-              <div className="relative" data-animate="fade-right">
+              <div className="relative max-w-md mx-auto lg:mx-0" data-animate="fade-right">
                 <div className="absolute -inset-4 bg-gradient-to-br from-violet-600/20 to-indigo-600/20 rounded-3xl blur-2xl" />
                 <div className="relative">
                   <Image
                     src="/landing-educacao/maxsuel.webp"
                     alt="Maxsuel Moreira"
-                    width={500}
-                    height={600}
+                    width={400}
+                    height={480}
                     className="rounded-3xl object-cover w-full"
                   />
                   {/* Floating Card */}
                   <div className="absolute -bottom-6 -right-6 bg-[#111] border border-white/10 rounded-2xl p-5 animate-float">
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 bg-violet-500/20 rounded-xl flex items-center justify-center">
-                        <Star className="w-6 h-6 text-violet-400" />
+                        <HiStar className="w-6 h-6 text-violet-400" />
                       </div>
                       <div>
                         <div className="text-lg font-bold text-white">+5 anos</div>
@@ -442,7 +444,7 @@ export default function EducacaoPage() {
                   "7 dias de garantia",
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-400" />
+                    <HiCheckCircle className="w-4 h-4 text-green-400" />
                     <span className="text-zinc-300">{item}</span>
                   </div>
                 ))}
@@ -462,13 +464,13 @@ export default function EducacaoPage() {
                   className="group mt-10 inline-flex items-center gap-3 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 px-12 py-6 max-md:px-6 max-md:text-lg rounded-full font-bold text-xl transition-all duration-300 hover:shadow-2xl hover:shadow-violet-500/30 hover:scale-105 animate-pulse-glow"
                 >
                   👉 Garanta sua vaga agora e transforme suas vendas educacionais
-                  <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                  <HiArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
 
               {/* Guarantee */}
               <div className="mt-8 flex items-center justify-center gap-3 text-zinc-500" data-animate="fade-up" data-delay="600">
-                <Shield className="w-5 h-5 text-green-400" />
+                <HiShieldCheck className="w-5 h-5 text-green-400" />
                 <span>7 dias de garantia incondicional</span>
               </div>
             </div>
