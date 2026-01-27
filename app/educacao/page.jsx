@@ -40,79 +40,141 @@ export default function EducacaoPage() {
       <div id="swup-main" className="transition-main min-h-screen bg-[#0d0d0d] text-white overflow-x-hidden selection:bg-violet-500/30">
         
         {/* ============================================
-            SEÇÃO 1 — HERO (Abertura / Promessa Principal)
+            SEÇÃO 1 — HERO (Split Screen Layout)
             ============================================ */}
-        <section className="relative min-h-screen flex items-center">
-          {/* Background */}
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-br from-violet-950/50 via-[#0d0d0d] to-indigo-950/30" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/20 rounded-full blur-[150px] animate-pulse-glow" />
-            <div className="absolute top-20 right-20 w-[300px] h-[300px] bg-indigo-600/10 rounded-full blur-[100px] animate-float" />
-          </div>
+        <section className="relative min-h-screen lg:h-screen overflow-hidden">
+          
+          {/* ========== MOBILE LAYOUT ========== */}
+          <div className="lg:hidden relative max-h-[80vh]">
+            {/* Background Image - Mobile */}
+            <div className="absolute inset-0">
+              <Image
+                src="/landing-educacao/max-hero.webp"
+                alt="Maxsuel Moreira"
+                fill
+                className="object-cover object-top max-md:object-contain max-md:scale-85 max-md:pl-10 max-md:object-bottom max-md:absolute"
+                priority
+              />
+              {/* Overlay gradients */}
+              <div className="absolute inset-0 bg-gradient-to-b from-[#0d0d0d]/70 via-transparent to-[#0d0d0d]" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d]/80 via-[#0d0d0d]/40 to-transparent" />
+            </div>
 
-          <div className="container mx-auto px-4 lg:px-8 relative z-10">
-            <div className="max-w-4xl mx-auto text-center pt-20 lg:pt-0">
-              
+            {/* Content - Mobile */}
+            <div className="relative z-10 min-h-screen flex flex-col justify-end px-5 pb-10 pt-20">
+              {/* Badge */}
+              <div data-animate="fade-down" className="inline-flex items-center gap-2 bg-violet-500/20 backdrop-blur-sm border border-violet-500/30 rounded-full px-3 py-1.5 mb-4 w-fit">
+                <span className="w-1.5 h-1.5 bg-violet-400 rounded-full animate-pulse" />
+                <span className="text-violet-300 text-xs font-medium">Curso Online</span>
+              </div>
+
               {/* Title */}
-              <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight">
-                <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent animate-gradient">
-                  Dominando as Vendas
-                </span>
+              <h1 data-animate="fade-up" data-delay="100" className="text-3xl sm:text-4xl font-black leading-[1.1] tracking-tight">
+                <span className="text-white">Dominando as</span>
                 <br />
-                Educacionais
+                <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+                  Vendas Educacionais
+                </span>
               </h1>
 
               {/* Subtitle */}
-              <p className="hero-subtitle mt-6 text-lg md:text-xl text-violet-300 font-medium max-w-3xl mx-auto">
-                O passo a passo prático para estruturar sua empresa educacional, gerar credibilidade no mercado e aumentar o número de alunos de forma previsível.
+              <p data-animate="fade-up" data-delay="200" className="mt-4 text-sm text-zinc-300 leading-relaxed max-w-[280px]">
+                O passo a passo prático para estruturar sua empresa educacional e aumentar o número de alunos.
               </p>
 
-              {/* Support Text */}
-              <div className="hero-text mt-8 text-base md:text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed space-y-4">
-                <p>
-                  Se você já vende cursos profissionalizantes, técnicos, tecnólogos, graduação ou pós-graduação, mas sente dificuldade em fechar matrículas, organizar o atendimento ou escalar as vendas, <strong className="text-white">este curso foi feito para você.</strong>
-                </p>
-                <p>
-                  Aqui você vai aprender como vender educação do jeito certo, do primeiro contato ao pós-venda, com processos claros e estratégias que realmente funcionam.
-                </p>
-              </div>
-
               {/* CTA */}
-              <div className="hero-cta mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+              <div data-animate="fade-up" data-delay="300" className="mt-6">
                 <a
                   href={HOTMART_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-3 bg-gradient-to-r from-violet-600 to-indigo-600 px-10 py-5 rounded-full font-bold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-violet-500/30 hover:scale-105 animate-pulse-glow"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-indigo-600 px-6 py-3.5 rounded-full font-bold text-sm transition-all duration-300"
                 >
-                  Garanta sua vaga agora
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  Quero começar agora
+                  <ArrowRight className="w-4 h-4" />
                 </a>
-                <div className="text-center sm:text-left">
-                  <div className="text-zinc-500 line-through text-sm">De R$ 129,90</div>
-                  <div className="text-2xl font-black text-white">R$ 89,90 <span className="text-sm font-normal text-zinc-400">ou 12x de R$ 8,90</span></div>
+              </div>
+
+              {/* Trust indicators - Mobile */}
+              <div data-animate="fade-up" data-delay="400" className="mt-6 flex items-center gap-4 text-xs text-zinc-400">
+                <div className="flex items-center gap-1.5">
+                  <Shield className="w-3.5 h-3.5 text-green-400" />
+                  <span>7 dias garantia</span>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          {/* ========== DESKTOP LAYOUT ========== */}
+          <div className="hidden lg:block relative z-10 h-full">
+            <div className="flex flex-row h-full">
+              
+              {/* LEFT SIDE - Content */}
+              <div className="flex-1 flex items-center justify-center px-12 xl:px-20">
+                <div className="max-w-xl">
+                  {/* Badge */}
+                  <div data-animate="fade-down" className="inline-flex items-center gap-2 bg-violet-500/10 border border-violet-500/20 rounded-full px-4 py-2 mb-6">
+                    <span className="w-2 h-2 bg-violet-400 rounded-full animate-pulse" />
+                    <span className="text-violet-300 text-sm font-medium">Curso Online • Acesso Imediato</span>
+                  </div>
+
+                  {/* Title */}
+                  <h1 data-animate="fade-up" data-delay="100" className="text-5xl xl:text-6xl font-black leading-[1.05] tracking-tight">
+                    <span className="text-white">Dominando as</span>
+                    <br />
+                    <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+                      Vendas Educacionais
+                    </span>
+                  </h1>
+
+                  {/* Subtitle */}
+                  <p data-animate="fade-up" data-delay="200" className="mt-6 text-lg text-zinc-400 leading-relaxed">
+                    O passo a passo prático para estruturar sua empresa educacional, gerar credibilidade e aumentar o número de alunos de forma previsível.
+                  </p>
+
+                  {/* CTA */}
+                  <div data-animate="fade-up" data-delay="300" className="mt-8">
+                    <a
+                      href={HOTMART_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-violet-600 to-indigo-600 px-8 py-4 rounded-full font-bold text-base transition-all duration-300 hover:shadow-2xl hover:shadow-violet-500/30 hover:scale-105"
+                    >
+                      Quero começar agora
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              {/* Trust */}
-              <div className="mt-8 flex items-center justify-center gap-8 text-sm text-zinc-500" data-animate="fade-up" data-delay="600">
-                <div className="flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-green-400" />
-                  7 dias de garantia
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-400" />
-                  Acesso imediato
+              {/* RIGHT SIDE - Image */}
+              <div className="relative w-1/2 xl:w-[50%]">
+                {/* Background gradient para a imagem */}
+                <div className="absolute inset-0 bg-gradient-to-r from-violet-900/40 via-violet-800/20 to-indigo-900/30" />
+                
+                {/* Gradiente de transição lateral (esquerda) */}
+                <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0d0d0d] to-transparent z-[1]" />
+               
+                {/* Image Container */}
+                <div className="relative h-full flex items-end justify-center" data-animate="fade-left" data-delay="300">
+                  <Image
+                    src="/landing-educacao/max-hero.webp"
+                    alt="Maxsuel Moreira - Especialista em Vendas Educacionais"
+                    width={550}
+                    height={700}
+                    className="relative z-10 w-auto h-[85vh] object-contain object-bottom"
+                    priority
+                  />
                 </div>
               </div>
             </div>
           </div>
 
-          
         </section>
 
         {/* MARQUEE TEXT SLIDER */}
-        <div className="py-8 border-y border-white/5 overflow-hidden mt-10">
+        <div className="py-8 border-y border-white/5 overflow-hidden ">
           <div className="flex animate-marquee whitespace-nowrap">
             {[...Array(4)].map((_, i) => (
               <span key={i} className="text-4xl md:text-6xl font-black text-white/5 mx-4">
@@ -314,19 +376,7 @@ export default function EducacaoPage() {
                   </p>
                 </div>
 
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-4">
-                  {[
-                    { value: "+100", label: "Empresas atendidas" },
-                    { value: "+5", label: "Anos de experiência" },
-                    { value: "2020", label: "No mercado desde" },
-                  ].map((stat, i) => (
-                    <div key={i} className="text-center bg-white/5 rounded-2xl p-4">
-                      <div className="text-2xl font-black text-violet-400">{stat.value}</div>
-                      <div className="text-zinc-500 text-xs mt-1">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
+               
               </div>
             </div>
           </div>
@@ -378,8 +428,8 @@ export default function EducacaoPage() {
                 <div className="text-lg text-zinc-400 mb-2">Por apenas</div>
                 <div className="text-7xl md:text-8xl font-black text-white tracking-tighter">
                   R$ 89<span className="text-4xl text-zinc-500">,90</span>
-                  <span className="text-2xl font-normal text-zinc-400 ml-2">à vista</span>
                 </div>
+                <span className="text-xl font-normal text-zinc-400 ml-2">à vista</span>
                 <div className="text-zinc-400 mt-3 text-lg">Ou 12x de R$ 8,90 no cartão</div>
               </div>
 
