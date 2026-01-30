@@ -60,6 +60,11 @@ export const metadata = {
   verification: {
     google: "seu-codigo-google-search-console",
   },
+  other: {
+    meta: [
+      { name: 'facebook-domain-verification', content: '359gc7x4m9b5g4dtt496zuauwvi8vx' }
+    ]
+  },
   alternates: {
     canonical: "https://digitalsmartag.com.br",
   },
