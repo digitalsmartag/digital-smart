@@ -1,17 +1,21 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Brand */}
-          <Link href="/" className="inline-block">
-            <span className="text-4xl font-bold text-[#543295]">DS</span>
-            <span className="block text-sm font-medium text-gray-400 mt-1">
-              DIGITAL SMART
-            </span>
+    <footer className="bg-[#0d0d0d] text-white border-t border-white/5">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        <div className="flex flex-col items-center gap-8">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-12 h-12 bg-gradient-to-br from-[#543295] to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform">
+              <span className="text-white font-bold text-xl">DS</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold text-white">Digital Smart</span>
+              <span className="text-xs text-zinc-500">Marketing Digital</span>
+            </div>
           </Link>
 
           {/* Instagram */}
@@ -19,13 +23,19 @@ export default function Footer() {
             href="https://www.instagram.com/agencia.digitalsmart/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 bg-gray-800 hover:bg-[#543295] rounded-lg flex items-center justify-center transition-all duration-300"
+            className="group flex items-center gap-3 bg-white/5 hover:bg-white/10 px-5 py-3 rounded-full transition-all duration-300"
           >
-            <Instagram className="w-5 h-5" />
+            <div className="w-10 h-10 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 rounded-lg flex items-center justify-center">
+              <Instagram className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-zinc-300 group-hover:text-white transition-colors">@agencia.digitalsmart</span>
           </a>
 
+          {/* Divider */}
+          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
           {/* Copyright */}
-          <p className="text-gray-500 text-sm">
+          <p className="text-zinc-500 text-sm text-center">
             © {new Date().getFullYear()} Digital Smart. Todos os direitos reservados.
           </p>
         </div>
