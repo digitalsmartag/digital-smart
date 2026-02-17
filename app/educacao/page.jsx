@@ -3,6 +3,7 @@ import { HiArrowRight, HiCheckCircle, HiShieldCheck, HiStar } from "react-icons/
 import SwupProvider from "./components/SwupProvider";
 import FAQ from "./components/FAQ";
 import "./components/animations.css";
+import ScrollToPrecoButton from "./components/ScrollToPrecoButton";
 
 const HOTMART_LINK = "https://pay.hotmart.com/G103687377H?off=dh7vs4ag&bid=1769039048750";
 
@@ -34,10 +35,25 @@ const modules = [
   },
 ];
 
+function scrollToPreco(e) {
+  e.preventDefault();
+  const element = document.getElementById('preco');
+  if (element) {
+    const offset = 80;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  }
+}
+
 export default function EducacaoPage() {
   return (
     <SwupProvider>
-      <div id="swup-main" className="transition-main min-h-screen bg-[#0d0d0d] text-white overflow-x-hidden selection:bg-violet-500/30">
+      <div id="swup-main" className="transition-main min-h-screen bg-[#0d0d0d] text-white overflow-x-hidden selection:bg-violet-500/30 scroll-smooth">
         
         {/* ============================================
             SEÇÃO 1 — HERO (Split Screen Layout)
@@ -62,11 +78,7 @@ export default function EducacaoPage() {
 
             {/* Content - Mobile */}
             <div className="relative z-10 min-h-screen flex flex-col justify-end px-5 pb-10 pt-20">
-              {/* Badge */}
-              <div data-animate="fade-down" className="inline-flex items-center gap-2 bg-violet-500/20 backdrop-blur-sm border border-violet-500/30 rounded-full px-3 py-1.5 mb-4 w-fit">
-                <span className="w-1.5 h-1.5 bg-violet-400 rounded-full animate-pulse" />
-                <span className="text-violet-300 text-xs font-medium">Curso Online</span>
-              </div>
+              
 
               {/* Title */}
               <h1 data-animate="fade-up" data-delay="100" className="text-5xl sm:text-4xl font-black leading-[1.1] tracking-tight">
@@ -84,15 +96,10 @@ export default function EducacaoPage() {
 
               {/* CTA */}
               <div data-animate="fade-up" data-delay="300" className="mt-6">
-                <a
-                  href={HOTMART_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-indigo-600 px-6 py-3.5 rounded-full font-bold text-sm transition-all duration-300"
-                >
+                <ScrollToPrecoButton className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-indigo-600 px-6 py-3.5 rounded-full font-bold text-sm transition-all duration-300">
                   Quero começar agora
                   <HiArrowRight className="w-4 h-4" />
-                </a>
+                </ScrollToPrecoButton>
               </div>
 
               {/* Trust indicators - Mobile */}
@@ -135,15 +142,10 @@ export default function EducacaoPage() {
 
                   {/* CTA */}
                   <div data-animate="fade-up" data-delay="300" className="mt-8">
-                    <a
-                      href={HOTMART_LINK}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-violet-600 to-indigo-600 px-8 py-4 rounded-full font-bold text-base transition-all duration-300 hover:shadow-2xl hover:shadow-violet-500/30 hover:scale-105"
-                    >
+                    <ScrollToPrecoButton className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-violet-600 to-indigo-600 px-8 py-4 rounded-full font-bold text-base transition-all duration-300 hover:shadow-2xl hover:shadow-violet-500/30 hover:scale-105">
                       Quero começar agora
                       <HiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    </ScrollToPrecoButton>
                   </div>
                 </div>
               </div>
@@ -194,7 +196,6 @@ export default function EducacaoPage() {
             <div className="max-w-4xl mx-auto">
               {/* Header */}
               <div className="text-center mb-16" data-animate="fade-up">
-                <span className="text-violet-400 font-semibold text-sm uppercase tracking-widest">Público Alvo</span>
                 <h2 className="text-4xl md:text-5xl font-black mt-4">
                   Esse curso é para <span className="text-violet-400">você que:</span>
                 </h2>
@@ -228,13 +229,68 @@ export default function EducacaoPage() {
         </section>
 
         {/* ============================================
-            SEÇÃO 3 — O que você vai aprender
+            SEÇÃO 3 — Quem será seu mentor
             ============================================ */}
         <section className="py-24 lg:py-32 bg-[#0a0a0a]">
+          <div className="container mx-auto px-4 lg:px-8 flex flex-col items-center w-full">
+            <div className="grid lg:grid-cols-2 gap-16 items-center max-w-5xl">
+              {/* Left - Photo */}
+              <div className="relative max-w-md mx-auto lg:mx-0" data-animate="fade-right">
+                <div className="absolute -inset-4 bg-gradient-to-br from-violet-600/20 to-indigo-600/20 rounded-3xl blur-2xl" />
+                <div className="relative">
+                  <Image
+                    src="/landing-educacao/maxsuel.webp"
+                    alt="Maxsuel Moreira"
+                    width={400}
+                    height={480}
+                    className="rounded-3xl object-cover w-full"
+                  />
+                  {/* Floating Card */}
+                  <div className="absolute -bottom-6 -right-6 bg-[#111] border border-white/10 rounded-2xl p-5 animate-float">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-violet-500/20 rounded-xl flex items-center justify-center">
+                        <HiStar className="w-6 h-6 text-violet-400" />
+                      </div>
+                      <div>
+                        <div className="text-lg font-bold text-white">+5 anos</div>
+                        <div className="text-zinc-400 text-xs">de experiência</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right - Content */}
+              <div data-animate="fade-left" data-delay="200">
+                <span className="text-violet-400 font-semibold text-sm uppercase tracking-widest">Seu Mentor</span>
+                <h2 className="text-4xl md:text-5xl font-black mt-4 mb-6">
+                  Quem vai te guiar <span className="text-violet-400">nessa jornada</span>
+                </h2>
+
+                <div className="space-y-4 text-zinc-400 text-lg leading-relaxed mb-8">
+                  <p>
+                    Meu nome é <strong className="text-white">Maxsuel Moreira</strong>, sou gestor em marketing e vendas, fundador da Digital Smart e especialista em vendas educacionais.
+                  </p>
+                  <p>
+                    Atuo no mercado digital desde 2020, com mais de <strong className="text-white">5 anos de experiência</strong>, ajudando mais de <strong className="text-white">100 empresas</strong> do setor educacional a estruturarem seus processos de vendas, aumentarem a credibilidade e escalarem o faturamento.
+                  </p>
+                  <p>
+                    Criei este curso para ajudar empresários como você a montar uma estrutura sólida, profissional e lucrativa, sem depender de tentativas aleatórias.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ============================================
+            SEÇÃO 4 — O que você vai aprender
+            ============================================ */}
+        <section className="py-24 lg:py-32">
           <div className="container mx-auto px-4 lg:px-8">
             {/* Header */}
             <div className="text-center mb-8" data-animate="fade-down">
-              <span className="text-violet-400 font-semibold text-sm uppercase tracking-widest">Estrutura do Curso</span>
               <h2 className="text-4xl md:text-5xl font-black mt-4">
                 O que você vai aprender no <br className="hidden md:block" />
                 <span className="text-violet-400">Dominando as Vendas Educacionais</span>
@@ -328,64 +384,7 @@ export default function EducacaoPage() {
         </section>
 
         {/* ============================================
-            SEÇÃO 5 — Quem será seu mentor
-            ============================================ */}
-        <section className="py-24 lg:py-32 bg-[#0a0a0a]">
-          <div className="container mx-auto px-4 lg:px-8 flex flex-col items-center w-full">
-            <div className="grid lg:grid-cols-2 gap-16 items-center max-w-5xl">
-              {/* Left - Photo */}
-              <div className="relative max-w-md mx-auto lg:mx-0" data-animate="fade-right">
-                <div className="absolute -inset-4 bg-gradient-to-br from-violet-600/20 to-indigo-600/20 rounded-3xl blur-2xl" />
-                <div className="relative">
-                  <Image
-                    src="/landing-educacao/maxsuel.webp"
-                    alt="Maxsuel Moreira"
-                    width={400}
-                    height={480}
-                    className="rounded-3xl object-cover w-full"
-                  />
-                  {/* Floating Card */}
-                  <div className="absolute -bottom-6 -right-6 bg-[#111] border border-white/10 rounded-2xl p-5 animate-float">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-violet-500/20 rounded-xl flex items-center justify-center">
-                        <HiStar className="w-6 h-6 text-violet-400" />
-                      </div>
-                      <div>
-                        <div className="text-lg font-bold text-white">+5 anos</div>
-                        <div className="text-zinc-400 text-xs">de experiência</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right - Content */}
-              <div data-animate="fade-left" data-delay="200">
-                <span className="text-violet-400 font-semibold text-sm uppercase tracking-widest">Seu Mentor</span>
-                <h2 className="text-4xl md:text-5xl font-black mt-4 mb-6">
-                  Quem vai te guiar <span className="text-violet-400">nessa jornada</span>
-                </h2>
-                
-                <div className="space-y-4 text-zinc-400 text-lg leading-relaxed mb-8">
-                  <p>
-                    Meu nome é <strong className="text-white">Maxsuel Moreira</strong>, sou gestor em marketing e vendas, fundador da Digital Smart e especialista em vendas educacionais.
-                  </p>
-                  <p>
-                    Atuo no mercado digital desde 2020, com mais de <strong className="text-white">5 anos de experiência</strong>, ajudando mais de <strong className="text-white">100 empresas</strong> do setor educacional a estruturarem seus processos de vendas, aumentarem a credibilidade e escalarem o faturamento.
-                  </p>
-                  <p>
-                    Criei este curso para ajudar empresários como você a montar uma estrutura sólida, profissional e lucrativa, sem depender de tentativas aleatórias.
-                  </p>
-                </div>
-
-               
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ============================================
-            SEÇÃO 6 — Dúvidas Frequentes
+            SEÇÃO 5 — Dúvidas Frequentes
             ============================================ */}
         <section className="py-24 lg:py-32">
           <div className="container mx-auto px-4 lg:px-8">
@@ -407,7 +406,7 @@ export default function EducacaoPage() {
         {/* ============================================
             SEÇÃO 7 — Oferta e Chamada para Ação
             ============================================ */}
-        <section className="py-32 lg:py-40 relative">
+        <section  className="py-32 lg:py-40 relative" id="preco">
           {/* Background */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[#0a0a0a]" />
@@ -417,13 +416,13 @@ export default function EducacaoPage() {
           <div className="container mx-auto px-4 lg:px-8 relative">
             <div className="max-w-3xl mx-auto text-center">
               {/* Title */}
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight" data-animate="scale-up">
+              <h2  className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight" data-animate="scale-up" style={{ scrollMarginTop: '100px' }}>
                 Invista hoje no crescimento do seu
                 <span className="text-violet-400"> negócio educacional</span>
               </h2>
 
               {/* Price */}
-              <div className="mt-12" data-animate="fade-up" data-delay="200">
+              <div  className="mt-12" data-animate="fade-up" data-delay="200">
                 <div className="inline-flex items-center gap-4 mb-4">
                   <span className="text-zinc-600 line-through text-2xl">De R$ 129,90</span>
                 </div>
@@ -435,25 +434,7 @@ export default function EducacaoPage() {
                 <div className="text-zinc-400 mt-3 text-lg">Ou 12x de R$ 8,90 no cartão</div>
               </div>
 
-              {/* Benefits */}
-              <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-4" data-animate="fade-up" data-delay="300">
-                {[
-                  "Acesso imediato",
-                  "Acesso vitalício",
-                  "Plataforma Hotmart",
-                  "7 dias de garantia",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <HiCheckCircle className="w-4 h-4 text-green-400" />
-                    <span className="text-zinc-300">{item}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Description */}
-              <p className="mt-8 text-zinc-400 text-lg max-w-xl mx-auto" data-animate="fade-up" data-delay="400">
-                Tenha acesso imediato ao <strong className="text-white">Dominando as Vendas Educacionais</strong> e comece hoje mesmo a estruturar sua empresa para vender mais, com mais organização e credibilidade.
-              </p>
+            
 
               {/* CTA */}
               <div data-animate="bounce-in" data-delay="500">
@@ -463,7 +444,7 @@ export default function EducacaoPage() {
                   rel="noopener noreferrer"
                   className="group mt-10 inline-flex items-center gap-3 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 px-12 py-6 max-md:px-6 max-md:text-lg rounded-full font-bold text-xl transition-all duration-300 hover:shadow-2xl hover:shadow-violet-500/30 hover:scale-105 animate-pulse-glow"
                 >
-                  👉 Garanta sua vaga agora e transforme suas vendas educacionais
+                  APROVEITAR A OFERTA
                   <HiArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
@@ -480,12 +461,7 @@ export default function EducacaoPage() {
         {/* FOOTER */}
         <footer className="py-16 border-t border-white/5">
           <div className="container mx-auto px-4 lg:px-8">
-            {/* Big Text */}
-            <div className="text-center mb-12">
-              <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white/5">
-                Comece Agora
-              </h2>
-            </div>
+            
 
             {/* Bottom */}
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">

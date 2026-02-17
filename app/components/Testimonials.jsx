@@ -1,78 +1,7 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import { Star, Quote } from "lucide-react";
 import { partners } from "../data/partners";
 
-const testimonials = [
-  {
-    name: "Ricardo Mendes",
-    role: "CEO",
-    company: "TechStart",
-    content: "A Digital Smart transformou nossa presença digital. Em 3 meses, triplicamos o número de leads qualificados. O investimento se pagou já no primeiro mês.",
-    rating: 5,
-  },
-  {
-    name: "Dra. Camila Santos",
-    role: "Diretora",
-    company: "Clínica Vida",
-    content: "Profissionais extremamente competentes. A landing page que criaram tem uma taxa de conversão de 15%, muito acima da média do mercado.",
-    rating: 5,
-  },
-  {
-    name: "Fernando Costa",
-    role: "Proprietário",
-    company: "Academia Elite",
-    content: "O tráfego pago gerenciado pela Digital Smart trouxe resultados incríveis. Lotamos todas as turmas em tempo recorde.",
-    rating: 5,
-  },
-  {
-    name: "Ana Paula Lima",
-    role: "Gerente de Marketing",
-    company: "Grupo Educacional ABC",
-    content: "Parceria de sucesso há mais de 2 anos. A equipe é dedicada, criativa e sempre entrega além do esperado.",
-    rating: 5,
-  },
-  {
-    name: "Marcos Oliveira",
-    role: "Fundador",
-    company: "StartupBR",
-    content: "Do zero ao primeiro milhão em faturamento com a ajuda da Digital Smart. Estratégia impecável e execução perfeita.",
-    rating: 5,
-  },
-  {
-    name: "Juliana Ferreira",
-    role: "Diretora Comercial",
-    company: "Imobiliária Premium",
-    content: "As automações de WhatsApp revolucionaram nosso atendimento. Respondemos 10x mais rápido e fechamos mais negócios.",
-    rating: 5,
-  },
-];
-
-export default function Testimonials() {
-  const [reviews, setReviews] = useState(testimonials);
-  const [loading, setLoading] = useState(true);
-  const [isGoogleReviews, setIsGoogleReviews] = useState(false);
-
-  useEffect(() => {
-    async function fetchGoogleReviews() {
-      try {
-        const response = await fetch('/api/google-reviews');
-        const data = await response.json();
-        
-        if (data.reviews && data.reviews.length > 0) {
-          setReviews(data.reviews);
-          setIsGoogleReviews(!data.fallback);
-        }
-      } catch (error) {
-        console.error('Erro ao buscar avaliações:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchGoogleReviews();
-  }, []);
+export default function Testimonials({ reviews, isGoogleReviews = false }) {
 
   return (
     <section className="py-20 lg:py-28 bg-[#543295] relative overflow-hidden">
@@ -139,7 +68,7 @@ export default function Testimonials() {
         <div className="mt-16 text-center">
           <div className="inline-flex items-center gap-4 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-2xl border border-white/10">
             <div className="flex -space-x-3">
-              {testimonials.slice(0, 4).map((t, i) => (
+              {reviews.slice(0, 4).map((t, i) => (
                 <div 
                   key={i}
                   className="w-10 h-10 bg-gradient-to-br from-purple-400 to-violet-600 rounded-full border-2 border-[#543295] flex items-center justify-center text-white text-xs font-bold"

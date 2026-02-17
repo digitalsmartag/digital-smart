@@ -6,8 +6,11 @@ import AboutUs from "./components/AboutUs";
 import Testimonials from "./components/Testimonials";
 import WhyChooseUs from "./components/WhyChooseUs";
 import FAQ from "./components/FAQ";
+import { fetchGoogleReviews } from "./lib/google-reviews";
 
-export default function Home() {
+export default async function Home() {
+  const { reviews, isGoogleReviews } = await fetchGoogleReviews();
+
   return (
     <>
       <Hero />
@@ -15,7 +18,7 @@ export default function Home() {
       <HowToStart />
       <PartnersMarquee />
       <AboutUs />
-      <Testimonials />
+      <Testimonials reviews={reviews} isGoogleReviews={isGoogleReviews} />
       <WhyChooseUs />
       <FAQ />
     </>

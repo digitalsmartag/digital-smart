@@ -5,8 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, TrendingUp, Users, Star, Sparkles, Award } from "lucide-react";
 import { partners } from "../data/partners";
+import ContactModal from "./ContactModal";
 
 export default function Hero() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <section className="relative min-h-screen max-md:min-h-fit  min-w-[375px]  overflow-hidden bg-gradient-to-b from-[#543295] via-[#4a2d85] to-[#3d2570]">
       
@@ -27,7 +29,7 @@ export default function Hero() {
 
             <div className="relative w-[60vw] max-w-[300px]">
               <Image
-                src="/root/maxsuel-perfil.webp"
+                src="/root/maxsuel.png"
                 alt="Maxsuel Moreira - CEO Digital Smart"
                 width={350}
                 height={450}
@@ -49,27 +51,27 @@ export default function Hero() {
           <div className="lg:col-span-7 flex flex-col justify-center relative z-10 w-full text-center lg:text-left -mt-12 lg:mt-0">
 
             {/* Main Heading */}
-            <div className="max-lg:px-5  lg:pt-20">
-              <h1 className="text-[1.5rem] sm:text-5xl lg:text-6xl xl:text-[5rem] font-bold text-white leading-[1.1] mb-6 lg:mb-12">
+            <div className="max-lg:px-5 lg:pt-20">
+              <h1 className="text-[1.5rem] sm:text-5xl lg:text-6xl xl:text-[4rem] font-bold text-white leading-[1.1] mb-6 lg:mb-12">
               Acelere o seu negócio{" "}
               <span className="text-white">com marketing estratégico e personalizado</span>
             </h1>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-6  lg:mb-6 max-lg:px-5">
-              <Link
-                href="/contato"
+              <button
+                onClick={() => setIsModalOpen(true)}
                 className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:scale-105"
               >
                 Solicitar Orçamento
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </button>
               
             </div>
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg lg:text-xl max-lg:px-3 text-white/70 max-w-2xl max-lg:text-justify  mx-auto lg:mx-0 leading-relaxed mb-8">
-              Somos especialistas em marketing digital com foco em resultados com soluções em Tráfego pago, sites e landing pages de alta conversão, gestão estratégica de redes sociais, edições em imagens e vídeos de alta qualidade, treinamentos em marketing, automações em IA e muito mais..
+              Somos especialistas em marketing digital com foco em resultados com soluções em tráfego pago, sites e landing pages de alta conversão, gestão estratégica de redes sociais, edições em imagens e vídeos de alta qualidade, treinamentos em marketing, automações em IA e muito mais..
             </p>
 
             
@@ -91,19 +93,19 @@ export default function Hero() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] border border-white/10 rounded-full" />
 
               <Image
-                src="/root/maxsuel-perfil.webp"
+                src="/root/maxsuel.png"
                 alt="Maxsuel Moreira - CEO Digital Smart"
                 width={900}
                 height={1100}
-                className="min-w-[550px] w-[650px] xl:w-[750px] h-auto object-contain object-bottom relative z-20"
+                className="min-w-[250px] w-[380px] h-auto object-contain object-bottom relative z-20"
                 priority
               />
 
               {/* Badge flutuante - CEO */}
-              <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-30 animate-float">
-                <div className="bg-white/10 backdrop-blur-md px-6 py-3 rounded-2xl border border-white/20 shadow-2xl">
+              <div className="absolute bottom-24 w-full left-1/2 -translate-x-1/2 z-30 animate-float">
+                <div className="bg-white/10 backdrop-blur-md px-4 w-fit py-3 rounded-2xl border border-white/20 shadow-2xl">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex shrink-0 items-center justify-center">
                       <span className="text-white font-bold text-lg">M</span>
                     </div>
                     <div>
@@ -120,6 +122,9 @@ export default function Hero() {
 
         </div>
       </div>
+
+      {/* Contact Modal */}
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }

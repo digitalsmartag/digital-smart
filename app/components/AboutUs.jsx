@@ -28,7 +28,7 @@ const highlights = [
 export default function AboutUs() {
   return (
     <section className="py-20 lg:py-28 bg-gray-50">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1170px] px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center mb-16">
@@ -40,44 +40,40 @@ export default function AboutUs() {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
+        <div className="grid lg:grid-cols-[auto_1fr] items-center gap-8">
+
+          {/* Photo */}
+          <div className="relative order-2 lg:order-1">
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-[#543295]/20 to-purple-600/20 rounded-3xl blur-2xl" />
+              <div className="relative">
+                <Image
+                  src="/landing-educacao/maxsuel.webp"
+                  alt="Maxsuel Moreira - CEO Digital Smart"
+                  width={450}
+                  height={400}
+                  className="rounded-3xl object-cover shadow-2xl"
+                />
+                
+              </div>
+            </div>
+          </div>
+
           {/* Content */}
-          <div>
-            <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
+          <div className="order-1 lg:order-2">
+            <div className="space-y-6 text-gray-600 text-xl max-md:text-lg leading-relaxed">
               <p>
                 A <span className="font-bold text-[#543295]">Digital Smart</span> é uma empresa especialista em estratégias online nas plataformas que mais vendem hoje no Brasil e no mundo. Com uma paixão pelo marketing digital e uma abordagem centrada no cliente, estamos comprometidos a impulsionar o crescimento dos seus negócios através de estratégias inovadoras e eficazes.
               </p>
               <p>
                 Estamos desde <span className="font-semibold text-[#543295]">2020</span> no marketing digital, gerando valores para empresas e negócios, focada em gerar resultados para o seu negócio com anúncios online, sites e landing pages, imagens de alta qualidade e automações, treinamentos em marketing e vendas e muito mais.
               </p>
-              <div className="pt-4">
-                <p className="text-xl font-bold text-[#543295]">
-                  Vamos trabalhar juntos para alavancar o faturamento do seu negócio!
-                </p>
-              </div>
+              
             </div>
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 gap-6">
-            {highlights.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-[#543295]/30 transition-all duration-300 group"
-              >
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#543295]/10 rounded-xl mb-4 group-hover:bg-[#543295] transition-colors duration-300">
-                  <item.icon className="w-6 h-6 text-[#543295] group-hover:text-white transition-colors duration-300" />
-                </div>
-                <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-1">
-                  {item.value}
-                </div>
-                <div className="text-gray-600 text-sm">
-                  {item.label}
-                </div>
-              </div>
-            ))}
-          </div>
+          
 
         </div>
       </div>

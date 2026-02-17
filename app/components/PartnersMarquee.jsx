@@ -21,7 +21,7 @@ export default function PartnersMarquee() {
             Nossos Parceiros
           </span>
           <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
-            Conheça algumas das mais de {partners.length} empresas que confiam em nosso trabalho
+            Algumas das mais de 100 empresas que confiam em nosso trabalho no Brasil, EUA e França.
           </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-lg">
             Trabalhamos com empresas no Brasil e Estados Unidos, 
