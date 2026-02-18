@@ -1,7 +1,12 @@
 import { Star, Quote } from "lucide-react";
-import { partners } from "../data/partners";
+import Image from "next/image";
 
-export default function Testimonials({ reviews, isGoogleReviews = false }) {
+export default function Testimonials({ 
+  reviews, 
+  isGoogleReviews = false,
+  averageRating = 5,
+  totalReviewCount = 0 
+}) {
 
   return (
     <section className="py-20 lg:py-28 bg-[#543295] relative overflow-hidden">
@@ -46,15 +51,25 @@ export default function Testimonials({ reviews, isGoogleReviews = false }) {
               </div>
 
               {/* Content */}
-              <p className="text-white/90 leading-relaxed mb-6">
+              <p className="text-white/90 leading-relaxed mb-6 line-clamp-6">
                 {testimonial.content}
               </p>
 
               {/* Author */}
               <div className="flex items-center gap-3 pt-4 border-t border-white/10">
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-violet-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                  {testimonial.name.charAt(0)}
-                </div>
+                {testimonial.avatar ? (
+                  <Image
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    width={40}
+                    height={40}
+                    className="w-10 h-10 rounded-full object-cover"
+                  />
+                ) : (
+                  <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-violet-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                    {testimonial.name.charAt(0)}
+                  </div>
+                )}
                 <div>
                   <div className="font-semibold text-white">{testimonial.name}</div>
                   <div className="text-white/50 text-sm">{testimonial.role} - {testimonial.company}</div>
@@ -69,12 +84,23 @@ export default function Testimonials({ reviews, isGoogleReviews = false }) {
           <div className="inline-flex items-center gap-4 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-2xl border border-white/10">
             <div className="flex -space-x-3">
               {reviews.slice(0, 4).map((t, i) => (
-                <div 
-                  key={i}
-                  className="w-10 h-10 bg-gradient-to-br from-purple-400 to-violet-600 rounded-full border-2 border-[#543295] flex items-center justify-center text-white text-xs font-bold"
-                >
-                  {t.name.charAt(0)}
-                </div>
+                t.avatar ? (
+                  <Image
+                    key={i}
+                    src={t.avatar}
+                    alt={t.name}
+                    width={40}
+                    height={40}
+                    className="w-10 h-10 rounded-full border-2 border-[#543295] object-cover"
+                  />
+                ) : (
+                  <div 
+                    key={i}
+                    className="w-10 h-10 bg-gradient-to-br from-purple-400 to-violet-600 rounded-full border-2 border-[#543295] flex items-center justify-center text-white text-xs font-bold"
+                  >
+                    {t.name.charAt(0)}
+                  </div>
+                )
               ))}
             </div>
             <div className="text-left">
@@ -82,10 +108,12 @@ export default function Testimonials({ reviews, isGoogleReviews = false }) {
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
                 ))}
-                <span className="text-white font-bold ml-2">5.0</span>
+                <span className="text-white font-bold ml-2">{averageRating.toFixed(1)}</span>
               </div>
               <div className="text-white/60 text-sm">
-                {isGoogleReviews ? 'Avaliações verificadas do Google' : `Avaliação média de ${partners.length} clientes`}
+                {isGoogleReviews 
+                  ? `${totalReviewCount} avaliações verificadas do Google` 
+                  : `Avaliação média de ${reviews.length} clientes`}
               </div>
             </div>
           </div>

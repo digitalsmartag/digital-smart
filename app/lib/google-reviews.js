@@ -1,5 +1,3 @@
-import { google } from 'googleapis';
-
 const fallbackReviews = [
   {
     name: "Ricardo Mendes",
@@ -29,91 +27,74 @@ let cachedReviews = null;
 let cacheTimestamp = null;
 const CACHE_DURATION = 60 * 60 * 1000; // 1 hora
 
+/**
+ * Busca avaliações do Google via API do Featurable
+ * @returns {Promise<{reviews: Array, isGoogleReviews: boolean, averageRating: number, totalReviewCount: number}>}
+ */
 export async function fetchGoogleReviews() {
   try {
     // Verificar cache
     if (cachedReviews && cacheTimestamp && (Date.now() - cacheTimestamp < CACHE_DURATION)) {
-      return { reviews: cachedReviews, isGoogleReviews: true };
+      return { reviews: cachedReviews, isGoogleReviews: true, averageRating: 5, totalReviewCount: cachedReviews.length };
     }
 
-    const auth = new google.auth.GoogleAuth({
-      credentials: {
-        client_email: process.env.GOOGLE_CLIENT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
-      },
-      scopes: ['https://www.googleapis.com/auth/business.manage'],
-    });
-
-    const authClient = await auth.getClient();
-    const mybusinessaccountmanagement = google.mybusinessaccountmanagement({
-      version: 'v1',
-      auth: authClient,
-    });
-
-    // Buscar contas
-    const accountsResponse = await mybusinessaccountmanagement.accounts.list();
-    const accounts = accountsResponse.data.accounts;
-
-    if (!accounts || accounts.length === 0) {
-      return { reviews: fallbackReviews, isGoogleReviews: false };
-    }
-
-    const accountName = accounts[0].name;
-
-    // Buscar localizações
-    const mybusinessbusinessinformation = google.mybusinessbusinessinformation({
-      version: 'v1',
-      auth: authClient,
-    });
-
-    const locationsResponse = await mybusinessbusinessinformation.accounts.locations.list({
-      parent: accountName,
-    });
-
-    const locations = locationsResponse.data.locations;
-
-    if (!locations || locations.length === 0) {
-      return { reviews: fallbackReviews, isGoogleReviews: false };
-    }
-
-    const locationName = locations[0].name;
-
-    // Buscar avaliações
-    const reviewsUrl = `https://mybusiness.googleapis.com/v4/${locationName}/reviews`;
-    const response = await fetch(reviewsUrl, {
-      headers: {
-        Authorization: `Bearer ${(await authClient.getAccessToken()).token}`,
-      },
-    });
+    const widgetId = process.env.FEATURABLE_WIDGET_ID || "e6024c41-ec90-4eb4-9e3a-c162fecb718d";
+    const response = await fetch(
+      `https://featurable.com/api/v1/widgets/${widgetId}`,
+      {
+        next: { revalidate: 3600 }, // Revalidar a cada 1 hora
+      }
+    );
 
     if (!response.ok) {
-      throw new Error(`Erro ao buscar avaliações: ${response.statusText}`);
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const data = await response.json();
-    const reviews = data.reviews || [];
 
-    const formattedReviews = reviews.map((review) => ({
-      name: review.reviewer?.displayName || 'Anônimo',
-      role: 'Cliente',
-      company: 'Google',
-      content: review.comment || 'Sem comentário',
-      rating: review.starRating === 'FIVE' ? 5 :
-              review.starRating === 'FOUR' ? 4 :
-              review.starRating === 'THREE' ? 3 :
-              review.starRating === 'TWO' ? 2 : 1,
-      date: review.createTime,
-      avatar: review.reviewer?.profilePhotoUrl,
-    }));
+    if (!data.success || !data.reviews) {
+      throw new Error("Invalid response from Featurable API");
+    }
+
+    // Transformar os dados da API no formato esperado pelo componente Testimonials
+    const reviews = data.reviews.map((review) => {
+      // Remover traduções do Google, mantendo apenas o comentário original
+      let content = review.comment || '';
+      
+      // Remove a parte "(Translated by Google)" e o texto traduzido
+      const translatedMatch = content.match(/\(Translated by Google\)[\s\S]*$/);
+      if (translatedMatch) {
+        content = content.substring(0, translatedMatch.index).trim();
+      }
+      
+      return {
+        name: review.reviewer.displayName,
+        role: "Cliente",
+        company: "Google Review",
+        content: content,
+        rating: review.starRating,
+        avatar: review.reviewer.profilePhotoUrl,
+        date: review.createTime,
+      };
+    });
 
     // Atualizar cache
-    cachedReviews = formattedReviews;
+    cachedReviews = reviews;
     cacheTimestamp = Date.now();
 
-    return { reviews: formattedReviews, isGoogleReviews: true };
-
+    return {
+      reviews,
+      isGoogleReviews: true,
+      averageRating: data.averageRating,
+      totalReviewCount: data.totalReviewCount,
+    };
   } catch (error) {
-    console.error('Erro ao buscar avaliações do Google:', error);
-    return { reviews: fallbackReviews, isGoogleReviews: false };
+    console.error("Erro ao buscar avaliações do Google:", error);
+    return { 
+      reviews: fallbackReviews, 
+      isGoogleReviews: false,
+      averageRating: 5,
+      totalReviewCount: fallbackReviews.length,
+    };
   }
 }

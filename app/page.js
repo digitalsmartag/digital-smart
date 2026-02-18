@@ -3,13 +3,13 @@ import Services from "./components/Services";
 import HowToStart from "./components/HowToStart";
 import PartnersMarquee from "./components/PartnersMarquee";
 import AboutUs from "./components/AboutUs";
-import Testimonials from "./components/Testimonials";
+import TestimonialsCarousel from "./components/TestimonialsCarousel";
 import WhyChooseUs from "./components/WhyChooseUs";
 import FAQ from "./components/FAQ";
 import { fetchGoogleReviews } from "./lib/google-reviews";
 
 export default async function Home() {
-  const { reviews, isGoogleReviews } = await fetchGoogleReviews();
+  const { reviews, isGoogleReviews, averageRating, totalReviewCount } = await fetchGoogleReviews();
 
   return (
     <>
@@ -18,7 +18,12 @@ export default async function Home() {
       <HowToStart />
       <PartnersMarquee />
       <AboutUs />
-      <Testimonials reviews={reviews} isGoogleReviews={isGoogleReviews} />
+      <TestimonialsCarousel 
+        reviews={reviews} 
+        isGoogleReviews={isGoogleReviews}
+        averageRating={averageRating}
+        totalReviewCount={totalReviewCount}
+      />
       <WhyChooseUs />
       <FAQ />
     </>
