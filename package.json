@@ -35,6 +35,7 @@
     "react-google-reviews": "^1.8.0",
     "react-hook-form": "^7.67.0",
     "react-icons": "^5.5.0",
+    "react-toastify": "^11.0.5",
     "swup": "^4.8.2",
     "zod": "^4.1.13"
   },

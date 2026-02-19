@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { HiXMark } from "react-icons/hi2";
+import { toast } from "react-toastify";
 
 export default function ContactModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -45,7 +46,10 @@ export default function ContactModal({ isOpen, onClose }) {
       });
 
       if (response.ok) {
-        alert("Mensagem enviada com sucesso!");
+        toast.success("Mensagem enviada com sucesso!", {
+          position: "top-right",
+          autoClose: 3000,
+        });
         setFormData({
           nome: "",
           telefone: "",
@@ -55,10 +59,16 @@ export default function ContactModal({ isOpen, onClose }) {
         });
         onClose();
       } else {
-        alert("Erro ao enviar mensagem. Tente novamente.");
+        toast.error("Erro ao enviar mensagem. Tente novamente.", {
+          position: "top-right",
+          autoClose: 3000,
+        });
       }
     } catch (error) {
-      alert("Erro ao enviar mensagem. Tente novamente.");
+      toast.error("Erro ao enviar mensagem. Tente novamente.", {
+        position: "top-right",
+        autoClose: 3000,
+      });
     } finally {
       setIsSubmitting(false);
     }

@@ -4,6 +4,8 @@ import { usePathname } from "next/navigation";
 import Header from "./Header";
 import Footer from "./Footer";
 import WhatsAppButton from "./WhatsAppButton";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Rotas que não devem ter header/footer global (landing pages)
 const landingPages = [
@@ -32,6 +34,18 @@ export default function LayoutWrapper({ children }) {
       <main>{children}</main>
       <Footer />
       <WhatsAppButton />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }
