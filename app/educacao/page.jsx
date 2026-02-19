@@ -3,7 +3,6 @@ import { HiArrowRight, HiCheckCircle, HiShieldCheck, HiStar } from "react-icons/
 import SwupProvider from "./components/SwupProvider";
 import FAQ from "./components/FAQ";
 import "./components/animations.css";
-import ScrollToPrecoButton from "./components/ScrollToPrecoButton";
 
 const HOTMART_LINK = "https://pay.hotmart.com/G103687377H?off=dh7vs4ag&bid=1769039048750";
 
@@ -96,10 +95,15 @@ export default function EducacaoPage() {
 
               {/* CTA */}
               <div data-animate="fade-up" data-delay="300" className="mt-6">
-                <ScrollToPrecoButton className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-indigo-600 px-6 py-3.5 rounded-full font-bold text-sm transition-all duration-300">
+                <a
+                  href={HOTMART_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-indigo-600 px-6 py-3.5 rounded-full font-bold text-sm transition-all duration-300"
+                >
                   Quero começar agora
                   <HiArrowRight className="w-4 h-4" />
-                </ScrollToPrecoButton>
+                </a>
               </div>
 
               {/* Trust indicators - Mobile */}
@@ -142,10 +146,15 @@ export default function EducacaoPage() {
 
                   {/* CTA */}
                   <div data-animate="fade-up" data-delay="300" className="mt-8">
-                    <ScrollToPrecoButton className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-violet-600 to-indigo-600 px-8 py-4 rounded-full font-bold text-base transition-all duration-300 hover:shadow-2xl hover:shadow-violet-500/30 hover:scale-105">
+                    <a
+                      href={HOTMART_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-violet-600 to-indigo-600 px-8 py-4 rounded-full font-bold text-base transition-all duration-300 hover:shadow-2xl hover:shadow-violet-500/30 hover:scale-105"
+                    >
                       Quero começar agora
                       <HiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </ScrollToPrecoButton>
+                    </a>
                   </div>
                 </div>
               </div>
