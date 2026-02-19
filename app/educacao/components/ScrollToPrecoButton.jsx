@@ -7,13 +7,9 @@ export default function ScrollToPrecoButton({ className, children }) {
     e.preventDefault();
     const element = document.getElementById('preco');
     if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'center'
       });
     }
   }
