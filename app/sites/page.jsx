@@ -87,40 +87,52 @@ const steps = [
 
 const portfolio = [
   {
-    title: "Clínica Estética Premium",
+    title: "Uniconnect",
     type: "Site Institucional",
-    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop",
-    color: "from-rose-500/80 to-pink-600/80"
+    description: "Plataforma de cursos técnicos EAD com sistema completo de matrículas e gestão acadêmica.",
+    url: "https://www.uniconnectead.com.br",
+    image: "/screenshots/uniconnectead-com-br-hero.png",
+    color: "from-blue-500/80 to-indigo-600/80"
   },
   {
-    title: "Escritório de Advocacia",
-    type: "One Page",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
-    color: "from-slate-700/80 to-slate-900/80"
-  },
-  {
-    title: "Academia Fitness Pro",
+    title: "Juba Natural Hair",
     type: "Landing Page",
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop",
-    color: "from-orange-500/80 to-red-600/80"
+    description: "Guia completo para cuidados com cabelos cacheados e crespos nos Estados Unidos.",
+    url: "https://www.jubanaturalhair.com/guia",
+    image: "/screenshots/jubanaturalhair-com-hero.png",
+    color: "from-purple-500/80 to-pink-600/80"
   },
   {
-    title: "Restaurante Gourmet",
+    title: "Aires Nails",
+    type: "Landing Page",
+    description: "Curso presencial exclusivo de refinamento técnico para profissionais de unhas.",
+    url: "https://www.airesnails.com/",
+    image: "/screenshots/airesnails-com-hero.png",
+    color: "from-rose-500/80 to-pink-700/80"
+  },
+  {
+    title: "VMARTELOZO Global Accounting",
     type: "Site Institucional",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop",
-    color: "from-amber-600/80 to-yellow-700/80"
-  },
-  {
-    title: "Consultoria Financeira",
-    type: "Landing Page",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+    description: "Consultoria contábil estratégica para SMBs nos EUA com metodologia Valtax.",
+    url: "https://www.vmartelozo.com/",
+    image: "/screenshots/vmartelozo-com-hero.png",
     color: "from-emerald-500/80 to-teal-600/80"
   },
   {
-    title: "Escola de Idiomas",
+    title: "C & R Cleaning",
     type: "Site Institucional",
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop",
-    color: "from-violet-500/80 to-purple-600/80"
+    description: "Serviços profissionais de limpeza residencial e comercial na Filadélfia.",
+    url: "https://www.cercleaning.com/",
+    image: "/screenshots/cercleaning-com-hero.png",
+    color: "from-cyan-500/80 to-blue-600/80"
+  },
+  {
+    title: "COS - Cleaning & Organization",
+    type: "Site Institucional",
+    description: "Serviços de limpeza e organização profissional no Sul da Flórida.",
+    url: "https://www.cleaningorganizationsolutions.com/",
+    image: "/screenshots/cleaningorganizationsolutions-com-hero.png",
+    color: "from-green-500/80 to-emerald-600/80"
   },
 ];
 
@@ -216,7 +228,7 @@ export default function SitesLandingPagesPage() {
               alt="Digital Smart" 
               width={140} 
               height={40} 
-              className="h-7 md:h-8 w-auto"
+              className="h-7 md:h-10 w-auto"
             />
           </Link>
           <a
@@ -311,9 +323,12 @@ export default function SitesLandingPagesPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
               {portfolio.map((project, index) => (
-                <div 
+                <a 
                   key={index}
-                  className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer"
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer block"
                 >
                   <Image
                     src={project.image}
@@ -327,14 +342,17 @@ export default function SitesLandingPagesPage() {
                     <span className="text-xs font-semibold uppercase tracking-widest text-white/60 mb-2 block">
                       {project.type}
                     </span>
-                    <h3 className="text-xl font-semibold text-white">
+                    <h3 className="text-xl font-semibold text-white mb-2">
                       {project.title}
                     </h3>
+                    <p className="text-white/80 text-sm leading-relaxed">
+                      {project.description}
+                    </p>
                   </div>
                   <div className="absolute top-4 right-4 w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                     <ExternalLink className="w-4 h-4 text-white" />
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </div>
