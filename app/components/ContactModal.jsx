@@ -4,12 +4,12 @@ import { useState } from "react";
 import { HiXMark } from "react-icons/hi2";
 import { toast } from "react-toastify";
 
-export default function ContactModal({ isOpen, onClose }) {
+export default function ContactModal({ isOpen, onClose, servicoPredefinido = "" }) {
   const [formData, setFormData] = useState({
     nome: "",
     telefone: "",
     email: "",
-    servico: "",
+    servico: servicoPredefinido,
     segmento: "",
   });
 
@@ -144,28 +144,30 @@ export default function ContactModal({ isOpen, onClose }) {
             />
           </div>
 
-          {/* Serviço */}
-          <div>
-            <label className="block text-sm font-medium text-zinc-300 mb-2">
-              Qual serviço deseja? *
-            </label>
-            <select
-              required
-              value={formData.servico}
-              onChange={(e) => setFormData({ ...formData, servico: e.target.value })}
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition-all"
-            >
-              <option value="">Selecione um serviço</option>
-              <option value="tráfego-pago">Tráfego Pago</option>
-              <option value="sites-landing-pages">Sites e Landing Pages</option>
-              <option value="redes-sociais">Gestão de Redes Sociais</option>
-              <option value="videos">Edição de Vídeos</option>
-              <option value="imagens">Edição de Imagens</option>
-              <option value="treinamentos">Treinamentos em Marketing</option>
-              <option value="automacao-ia">Automações com IA</option>
-              <option value="outro">Outro</option>
-            </select>
-          </div>
+          {/* Serviço - Apenas exibir se não houver serviço pré-definido */}
+          {!servicoPredefinido && (
+            <div>
+              <label className="block text-sm font-medium text-zinc-300 mb-2">
+                Qual serviço deseja? *
+              </label>
+              <select
+                required
+                value={formData.servico}
+                onChange={(e) => setFormData({ ...formData, servico: e.target.value })}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition-all"
+              >
+                <option value="">Selecione um serviço</option>
+                <option value="tráfego-pago">Tráfego Pago</option>
+                <option value="sites-landing-pages">Sites e Landing Pages</option>
+                <option value="redes-sociais">Gestão de Redes Sociais</option>
+                <option value="videos">Edição de Vídeos</option>
+                <option value="imagens">Edição de Imagens</option>
+                <option value="treinamentos">Treinamentos em Marketing</option>
+                <option value="automacao-ia">Automações com IA</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+          )}
 
           {/* Segmento */}
           <div>

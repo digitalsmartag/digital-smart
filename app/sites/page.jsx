@@ -13,9 +13,10 @@ import {
   MonitorSmartphone,
   Plus,
   Minus,
-  ExternalLink
+  ExternalLink,
+  Instagram
 } from "lucide-react";
-import LandingFooter from "../components/LandingFooter";
+import ContactModal from "../components/ContactModal";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,18 +26,6 @@ const poppins = Poppins({
 
 const WHATSAPP_LINK = "https://wa.me/5531984169075?text=Olá! Gostaria de falar sobre a criação de um site/landing page para minha empresa.";
 
-const marqueeItems = [
-  "Site Institucional",
-  "Landing Page",
-  "One Page",
-  "Loja Virtual",
-  "Link Page",
-  "Site Institucional",
-  "Landing Page",
-  "One Page",
-  "Loja Virtual",
-  "Link Page",
-];
 
 const benefits = [
   {
@@ -161,12 +150,8 @@ const features = [
 
 const faqs = [
   {
-    question: "Vocês trabalham com WordPress ou construtores de página?",
-    answer: "Trabalhamos com tecnologias modernas (React, Next.js) que garantem muito mais velocidade, segurança e personalização do que plataformas tradicionais. Seu site carregará mais rápido e será mais seguro."
-  },
-  {
     question: "Qual o prazo médio de entrega?",
-    answer: "Para Landing Pages, o prazo médio é de 5 a 7 dias úteis após a aprovação do design. Para sites institucionais mais complexos, o prazo varia de 10 a 15 dias úteis."
+    answer: "Cada projeto é personalizado em suas características e o tempo de entrega, mas durante o levantamento de orçamento já é passado o prazo que seu site será entregue, mas fique tranquilo(a) que a entrega é rápida!"
   },
   {
     question: "O site vai funcionar bem no celular?",
@@ -174,7 +159,7 @@ const faqs = [
   },
   {
     question: "Depois de pronto tem algum valor mensal obrigatório?",
-    answer: "Ao contratar, você paga pelo valor do desenvolvimento. Os únicos custos adicionais são domínio (~R$45/ano) e hospedagem (~R$50 a R$100/trimestral). Indicamos os melhores provedores."
+    answer: "Ao contratar, você paga pelo valor do desenvolvimento. Os únicos custos adicionais são domínio e hospedagem, que são pagos diretamente pelos provedores."
   },
   {
     question: "Vocês fazem a manutenção depois de pronto?",
@@ -215,6 +200,7 @@ function FAQItem({ question, answer, isOpen, onClick }) {
 
 export default function SitesLandingPagesPage() {
   const [openFaq, setOpenFaq] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className={`${poppins.variable} font-[family-name:var(--font-poppins)] min-h-screen bg-[#Fdfdfd] text-[#1a1a1a] selection:bg-[#543295] selection:text-white`}>
@@ -231,14 +217,12 @@ export default function SitesLandingPagesPage() {
               className="h-7 md:h-10 w-auto"
             />
           </Link>
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => setIsModalOpen(true)}
             className="px-5 py-2.5 bg-[#543295] text-white rounded-full text-sm font-semibold hover:bg-[#3d2570] transition-all duration-300"
           >
             Fazer orçamento
-          </a>
+          </button>
         </div>
       </header>
 
@@ -249,27 +233,25 @@ export default function SitesLandingPagesPage() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(84,50,149,0.08),transparent_60%)]" />
           <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.08] tracking-tight mb-8">
-              Criação de sites e{" "}
+              Criação de sites, landing Pages e{" "}
               <span className="text-[#543295]">
-                estruturas digitais
+                lojas virtuais
               </span>{" "}
-              para sua empresa.
+              de alta conversão.
             </h1>
             
             <p className="text-lg md:text-xl text-[#666666] mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-              Produção de sites institucionais, landing pages e one pages sob demanda, com foco em conversão, velocidade e design profissional.
+              Crie uma presença digital que gera resultados reais. A Digital Smart desenvolve sites, landing page e lojas virtuais, com foco em conversão, performance e design profissional.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => setIsModalOpen(true)}
                 className="w-full sm:w-auto px-8 py-4 bg-[#543295] hover:bg-[#3d2570] text-white rounded-full text-base font-semibold transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2"
               >
                 Fazer orçamento agora
                 <ArrowRight className="w-5 h-5" />
-              </a>
+              </button>
               <a
                 href="#portfolio"
                 className="w-full sm:w-auto px-8 py-4 border border-[#e5e5e5] text-[#1a1a1a] rounded-full text-base font-medium transition-all duration-300 hover:border-[#543295]/30 flex items-center justify-center gap-2"
@@ -280,32 +262,7 @@ export default function SitesLandingPagesPage() {
           </div>
         </section>
 
-        {/* ===== MARQUEE DE SERVIÇOS ===== */}
-        <section className="py-6 border-y border-[#e5e5e5] overflow-hidden">
-          <div className="relative flex">
-            <div className="flex animate-marquee gap-8 whitespace-nowrap">
-              {[...marqueeItems, ...marqueeItems].map((item, index) => (
-                <div key={index} className="flex items-center gap-8">
-                  <span className="text-sm md:text-base font-medium text-[#999999] uppercase tracking-widest">
-                    {item}
-                  </span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#543295]" />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <style jsx>{`
-            @keyframes marquee {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
-            }
-            .animate-marquee {
-              animation: marquee 25s linear infinite;
-            }
-          `}</style>
-        </section>
-
+        
         {/* ===== PORTFOLIO ===== */}
         <section id="portfolio" className="py-20 md:py-28">
           <div className="max-w-7xl mx-auto px-6">
@@ -448,20 +405,7 @@ export default function SitesLandingPagesPage() {
                   </p>
                 </div>
 
-                <div className="mt-10 flex gap-12 pt-10 border-t border-white/10">
-                  <div>
-                    <div className="text-4xl font-semibold text-white mb-1">+150</div>
-                    <div className="text-sm text-[#cccccc] uppercase tracking-wider">Projetos</div>
-                  </div>
-                  <div>
-                    <div className="text-4xl font-semibold text-white mb-1">98%</div>
-                    <div className="text-sm text-[#cccccc] uppercase tracking-wider">Satisfação</div>
-                  </div>
-                  <div>
-                    <div className="text-4xl font-semibold text-white mb-1">7 dias</div>
-                    <div className="text-sm text-[#cccccc] uppercase tracking-wider">Prazo médio</div>
-                  </div>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -523,21 +467,61 @@ export default function SitesLandingPagesPage() {
             <p className="text-[#cccccc] text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto">
               Me conte um pouco sobre o seu projeto. Vou analisar e enviar uma proposta personalizada em até 24 horas.
             </p>
-            <a
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setIsModalOpen(true)}
               className="inline-flex px-8 py-4 bg-white hover:bg-white/90 text-[#1a1a1a] rounded-full text-lg font-semibold transition-all duration-300 items-center justify-center gap-2 hover:scale-[1.02]"
             >
               Solicitar orçamento grátis
               <ArrowRight className="w-5 h-5" />
-            </a>
+            </button>
             <p className="mt-6 text-white/40 text-sm">
               Orçamento sem compromisso • Resposta em até 24h
             </p>
           </div>
         </section>
       </main>
+
+      {/* Footer */}
+      <footer className="bg-[#0d0d0d] text-white border-t border-white/5">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+          <div className="flex flex-col items-center gap-8">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#543295] to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform">
+                <span className="text-white font-bold text-xl">DS</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xl font-bold text-white">Digital Smart</span>
+                <span className="text-xs text-zinc-500">Marketing Digital</span>
+              </div>
+            </Link>
+
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/agencia.digitalsmart/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 bg-white/5 hover:bg-white/10 px-5 py-3 rounded-full transition-all duration-300"
+            >
+              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 rounded-lg flex items-center justify-center">
+                <Instagram className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-zinc-300 group-hover:text-white transition-colors">@agencia.digitalsmart</span>
+            </a>
+
+            {/* Divider */}
+            <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+            {/* Copyright */}
+            <p className="text-zinc-500 text-sm text-center">
+              © {new Date().getFullYear()} Digital Smart. Todos os direitos reservados.
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      {/* Contact Modal */}
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} servicoPredefinido="sites-landing-pages" />
     </div>
   );
 }
