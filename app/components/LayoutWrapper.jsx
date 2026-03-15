@@ -13,6 +13,8 @@ const landingPages = [
   "/educacao",
   "/treinamento",
   "/sites",
+  "/servicos/gestao-redes-sociais",
+  "/servicos/trafego-pago",
 ];
 
 export default function LayoutWrapper({ children }) {

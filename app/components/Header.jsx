@@ -7,8 +7,9 @@ import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 
 const services = [
   { name: "Tráfego Pago", href: "/servicos/trafego-pago" },
-  { name: "Sites e Landing Pages", href: "/servicos/sites" },
+  { name: "Sites e Landing Pages", href: "/sites" },
   { name: "Gestão de Redes Sociais", href: "/servicos/gestao-redes-sociais" },
+  { name: "Landing Pages", href: "/servicos/landing-pages" },
 ];
 
 export default function Header() {
