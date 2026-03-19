@@ -50,27 +50,32 @@ const steps = [
   {
     num: "1",
     title: "Briefing Estratégico",
-    description: "Iniciamos com um entendimento profundo do seu negócio, metas e expectativas, para garantir a criação de um projeto verdadeiramente personalizado."
+    description: "Iniciamos com um entendimento profundo do seu negócio, metas e expectativas, para garantir a criação de um projeto verdadeiramente personalizado.",
+    image: "/landing-sites/briefing.webp"
   },
   {
     num: "2",
     title: "Planejamento e Estrutura",
-    description: "Desenvolvemos um planejamento estratégico e estruturamos o esqueleto do site, focando na organização das informações e na navegação intuitiva."
+    description: "Desenvolvemos um planejamento estratégico e estruturamos o esqueleto do site, focando na organização das informações e na navegação intuitiva.",
+    image: "/landing-sites/planejamento.webp"
   },
   {
     num: "3",
     title: "Design Personalizado",
-    description: "Elaboramos um layout exclusivo, alinhado à sua identidade visual, sempre priorizando usabilidade e responsividade para todos os dispositivos."
+    description: "Elaboramos um layout exclusivo, alinhado à sua identidade visual, sempre priorizando usabilidade e responsividade para todos os dispositivos.",
+    image: "/landing-sites/design.webp"
   },
   {
     num: "4",
     title: "Desenvolvimento e Testes",
-    description: "Transformamos o design em um site funcional, realizando testes rigorosos para garantir que todas as funcionalidades operem corretamente."
+    description: "Transformamos o design em um site funcional, realizando testes rigorosos para garantir que todas as funcionalidades operem corretamente.",
+    image: "/landing-sites/desenvolvimento.webp"
   },
   {
     num: "5",
     title: "Otimização e Suporte",
-    description: "Após a entrega, otimizamos o site para garantir máxima performance, carregamento rápido e segurança, com assistência técnica contínua."
+    description: "Após a entrega, otimizamos o site para garantir máxima performance, carregamento rápido e segurança, com assistência técnica contínua.",
+    image: "/landing-sites/suporte.webp"
   }
 ];
 
@@ -241,7 +246,7 @@ export default function SitesLandingPagesPage() {
             </h1>
             
             <p className="text-lg md:text-xl text-[#666666] mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-              Crie uma presença digital que gera resultados reais. A Digital Smart desenvolve sites, landing page e lojas virtuais, com foco em conversão, performance e design profissional.
+              Crie uma presença digital que gere resultados reais. A Digital Smart desenvolve sites, landing page e lojas virtuais, com foco em conversão, performance e design profissional.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -360,12 +365,25 @@ export default function SitesLandingPagesPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {steps.map((item, index) => (
                 <div key={index} className="relative group">
-                  <div className="bg-[#Fdfdfd] border border-[#e5e5e5] rounded-2xl p-8 h-full hover:border-[#543295]/30 transition-all duration-300">
-                    <div className="w-12 h-12 rounded-full bg-[#543295]/10 border border-[#543295]/20 flex items-center justify-center mb-6">
-                      <span className="text-[#543295] font-semibold text-lg">{item.num}</span>
+                  <div className="bg-[#Fdfdfd] border border-[#e5e5e5] rounded-2xl overflow-hidden hover:border-[#543295]/30 transition-all duration-300 h-full">
+                    {/* Imagem em cima */}
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm border border-white/20 flex items-center justify-center shadow-lg">
+                        <span className="text-[#543295] font-semibold text-lg">{item.num}</span>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-semibold text-[#1a1a1a] mb-3">{item.title}</h3>
-                    <p className="text-[#666666] leading-relaxed">{item.description}</p>
+                    
+                    {/* Informações embaixo */}
+                    <div className="p-6 md:p-8">
+                      <h3 className="text-xl font-semibold text-[#1a1a1a] mb-3">{item.title}</h3>
+                      <p className="text-[#666666] leading-relaxed">{item.description}</p>
+                    </div>
                   </div>
                 </div>
               ))}
