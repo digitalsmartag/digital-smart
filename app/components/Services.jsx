@@ -1,35 +1,35 @@
-import { Target, Globe, Share2, ImageIcon, Bot, GraduationCap } from "lucide-react";
+import Image from "next/image";
 
 const services = [
   {
-    icon: Target,
     title: "Tráfego Pago",
     description: "Campanhas estratégicas no Google Ads, Meta Ads e outras plataformas para atrair clientes qualificados e aumentar suas vendas de forma previsível.",
+    image: "/root/trafego.webp",
   },
   {
-    icon: Globe,
     title: "Sites e Landing Pages",
     description: "Desenvolvimento de sites profissionais e landing pages de alta conversão, otimizados para SEO e focados em resultados.",
+    image: "/root/landing.jpeg",
   },
   {
-    icon: Share2,
     title: "Gestão de Redes Sociais",
     description: "Estratégia completa de conteúdo, criação de posts e gestão profissional das suas redes sociais para fortalecer sua marca.",
+    image: "/root/gestao.webp",
   },
   {
-    icon: ImageIcon,
     title: "Edições de Imagens e Vídeos",
     description: "Produção de conteúdo visual de alta qualidade, edição profissional de imagens e vídeos para redes sociais, anúncios e materiais institucionais.",
+    image: "/root/edicao.webp",
   },
   {
-    icon: Bot,
     title: "Automações em IA",
     description: "Implementação de automações inteligentes com inteligência artificial para otimizar processos, atendimento e aumentar a produtividade do seu negócio.",
+    image: "/root/automacao.jpg",
   },
   {
-    icon: GraduationCap,
     title: "Treinamentos em Marketing",
     description: "Capacitação completa em marketing digital para você e sua equipe, com metodologias práticas e atualizadas para gerar resultados.",
+    image: "/root/marketing.webp",
   },
 ];
 
@@ -56,20 +56,27 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-white rounded-xl p-8 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden"
             >
-              {/* Icon */}
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg mb-6 bg-[#543295]/10 text-[#543295] group-hover:bg-[#543295] group-hover:text-white transition-all duration-300">
-                <service.icon className="w-7 h-7" />
+              {/* Image */}
+              <div className="relative w-full h-52 overflow-hidden">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#543295] transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                {service.description}
-              </p>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#543295] transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
