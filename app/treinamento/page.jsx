@@ -171,7 +171,7 @@ export default function TreinamentoPage() {
               {/* CTA */}
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <a
-                  href="https://wa.me/5531984169075?text=Olá! Quero saber mais sobre os treinamentos."
+                  href="https://wa.me/5531992099447?text=Olá! Quero saber mais sobre os treinamentos."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center justify-center gap-3 bg-white text-[#543295] px-8 py-5 rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-gray-100"
@@ -180,7 +180,7 @@ export default function TreinamentoPage() {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
-                  href="tel:+5531984169075"
+                  href="tel:+5531992099447"
                   className="inline-flex items-center justify-center gap-3 bg-white/10 text-white px-8 py-5 rounded-2xl font-semibold text-lg transition-all duration-300 border border-white/20 hover:bg-white/20"
                 >
                   <Phone className="w-5 h-5" />
@@ -369,7 +369,7 @@ export default function TreinamentoPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://wa.me/5531984169075?text=Olá! Quero saber mais sobre os treinamentos."
+                  href="https://wa.me/5531992099447?text=Olá! Quero saber mais sobre os treinamentos."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center justify-center gap-3 bg-white text-[#543295] px-8 py-5 rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-gray-100"

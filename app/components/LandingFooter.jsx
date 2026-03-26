@@ -23,7 +23,7 @@ export default function LandingFooter() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://wa.me/5531984169075"
+                href="https://wa.me/5531992099447"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center transition-colors duration-300"
@@ -31,7 +31,7 @@ export default function LandingFooter() {
                 <MessageCircle className="w-5 h-5" />
               </a>
               <a
-                href="tel:+5531984169075"
+                href="tel:+5531992099447"
                 className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors duration-300"
               >
                 <Phone className="w-5 h-5" />

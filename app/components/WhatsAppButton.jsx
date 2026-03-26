@@ -1,7 +1,7 @@
 "use client";
 
 export default function WhatsAppButton() {
-  const phoneNumber = "5531984169075";
+  const phoneNumber = "5531992099447";
   const message = "Olá! Vim pelo site e gostaria de saber mais sobre os serviços da Digital Smart.";
   
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;

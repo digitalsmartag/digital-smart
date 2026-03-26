@@ -24,7 +24,7 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-const WHATSAPP_LINK = "https://wa.me/5531984169075?text=Olá! Gostaria de falar sobre a criação de um site/landing page para minha empresa.";
+const WHATSAPP_LINK = "https://wa.me/5531992099447?text=Olá! Gostaria de falar sobre a criação de um site/landing page para minha empresa.";
 
 
 const benefits = [

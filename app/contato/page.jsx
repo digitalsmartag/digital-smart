@@ -144,7 +144,7 @@ export default function ContatoPage() {
 
                 {/* WhatsApp Button */}
                 <a
-                  href="https://wa.me/5531984169075"
+                  href="https://wa.me/5531992099447"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 w-full bg-green-500 hover:bg-green-600 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 mt-4"

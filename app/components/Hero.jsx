@@ -27,7 +27,7 @@ export default function Hero() {
           <div className="lg:hidden relative w-full flex justify-center mt-8 -mb-12 z-0">
             <div className="absolute -bottom-18 w-full left-0 right-0 h-40  bg-gradient-to-t via-60% from-transparent  via-[#543295] to-transparent z-10 pointer-events-none" />
 
-            <div className="relative w-[60vw] max-w-[300px]">
+            <div className="relative w-[60vw]  max-w-[300px]">
               <Image
                 src="/root/maxsuel.png"
                 alt="Maxsuel Moreira - CEO Digital Smart"
@@ -97,7 +97,7 @@ export default function Hero() {
                 alt="Maxsuel Moreira - CEO Digital Smart"
                 width={900}
                 height={1100}
-                className="min-w-[250px] w-[380px] h-auto object-contain object-bottom relative z-20"
+                className="min-w-[250px] w-[380px] min-[1200px]:w-[330px] min-[1400px]:w-[370px] h-auto object-contain object-bottom relative z-20"
                 priority
               />
 

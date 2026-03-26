@@ -92,13 +92,7 @@ export default function Header() {
                 )}
               </div>
 
-              <Link
-                href="/sobre"
-                className="font-medium transition-colors duration-200 text-white/90 hover:text-white"
-              >
-                Sobre Nós
-              </Link>
-
+              
               <Link
                 href="/contato"
                 className="font-medium transition-colors duration-200 text-white/90 hover:text-white"
@@ -157,14 +151,7 @@ export default function Header() {
                   </div>
                 </div>
 
-                <Link
-                  href="/sobre"
-                  className="block px-4 py-2 text-white hover:bg-white/10 rounded-lg transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Sobre Nós
-                </Link>
-
+                
                 <Link
                   href="/contato"
                   className="block px-4 py-2 text-white hover:bg-white/10 rounded-lg transition-colors"
