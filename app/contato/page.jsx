@@ -79,13 +79,6 @@ export default function ContatoPage() {
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <Image 
-              src="/root/logo-branca.png" 
-              alt="Digital Smart" 
-              width={180} 
-              height={60} 
-              className="h-12 w-auto object-contain mx-auto mb-8" 
-            />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Fale Conosco
             </h1>
