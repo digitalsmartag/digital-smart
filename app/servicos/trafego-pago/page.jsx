@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight, ChevronDown, Target, Zap, LineChart, BarChart3, Search, Share2, Play, MessageCircle, CheckCircle2, Store, Laptop, Wrench } from "lucide-react";
 import ContactModal from "../../components/ContactModal";
 import Footer from "../../components/Footer";
+import PartnersMarquee from "../../components/PartnersMarquee";
 
 export default function TrafegoPagoPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -37,60 +38,76 @@ export default function TrafegoPagoPage() {
             </div>
           </header>
 
-          {/* Hero content — centralizado */}
+          {/* Hero content — 2 colunas */}
           <div className="flex-1 flex items-center">
-            <div className="max-w-4xl mx-auto px-6 py-16 text-center w-full">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                <span className="text-white/90 text-sm font-medium uppercase tracking-wider">Gestão de Tráfego Pago</span>
-              </div>
+            <div className="max-w-7xl mx-auto px-6 py-16 w-full">
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.08] mb-6">
-                Anuncie onde está a atenção<br className="hidden sm:block" />
-                <span className="text-white/60"> dos seus clientes,</span><br />
-                na Internet!
-              </h1>
+                {/* Coluna esquerda — texto */}
+                <div className="relative">
+                  {/* Foto mobile - atrás do texto */}
+                  <div className="lg:hidden absolute left-1/2 -top-32 w-full h-40 -z-10 opacity-30">
+                    <div className="relative w-full h-full">
+                      <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/20">
+                        <Image
+                          src="/root/maxsuel.png"
+                          alt="Maxsuel Moreira — Especialista em Tráfego Pago"
+                          width={128}
+                          height={160}
+                          className="object-cover object-top w-full h-full"
+                          priority
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#3d2570] to-transparent" />
+                      </div>
+                    </div>
+                  </div>
 
-              <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-2xl mx-auto mb-10">
-                Contratar um especialista em tráfego pago é fundamental para fazer seu negócio vender muito mais através dos anúncios online.
-              </p>
+                  <div className="inline-flex max-lg:hidden items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                    <span className="text-white/90 text-sm font-medium uppercase tracking-wider">Gestão de Tráfego Pago</span>
+                  </div>
 
-              <div className="flex flex-wrap justify-center gap-3 mb-10">
-                <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full border border-white/20">
-                  <Search className="w-4 h-4 text-white/70" />
-                  <span className="text-white/80 text-sm font-medium">Google Ads</span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full border border-white/20">
-                  <Share2 className="w-4 h-4 text-white/70" />
-                  <span className="text-white/80 text-sm font-medium">Meta Ads</span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full border border-white/20">
-                  <Play className="w-4 h-4 text-white/70" />
-                  <span className="text-white/80 text-sm font-medium">TikTok Ads</span>
-                </div>
-              </div>
+                  <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl font-bold text-white leading-[1.08] mb-6 relative z-10">
+                    Anuncie onde está a atenção
+                    <span className="text-white/60"> dos seus clientes,</span><br />
+                    na Internet!
+                  </h1>
 
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold text-lg rounded-xl transition-all duration-300 shadow-lg shadow-green-500/30 hover:scale-105 cursor-pointer"
-              >
-                Solicitar orçamento
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+                  <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10">
+                    Contratar um especialista em tráfego pago é fundamental para fazer seu negócio vender muito mais através dos anúncios online.
+                  </p>
 
-              <div className="mt-16 pt-8 border-t border-white/15 grid grid-cols-3 gap-6 max-w-md mx-auto">
-                <div>
-                  <div className="text-3xl font-bold text-white mb-1">+100</div>
-                  <div className="text-white/50 text-sm">Empresas atendidas</div>
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold text-lg rounded-xl transition-all duration-300 shadow-lg shadow-green-500/30 hover:scale-105 cursor-pointer"
+                  >
+                    Solicitar orçamento
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-white mb-1">5.2x</div>
-                  <div className="text-white/50 text-sm">ROI médio</div>
+
+                {/* Coluna direita — foto do Maxsuel (desktop) */}
+                <div className="hidden lg:flex justify-center items-center">
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-white/15 to-violet-600/20 rounded-3xl blur-2xl" />
+                    <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/40">
+                      <Image
+                        src="/root/maxsuel.png"
+                        alt="Maxsuel Moreira — Especialista em Tráfego Pago"
+                        width={450}
+                        height={400}
+                        className="object-cover object-top w-full lg:w-[420px] h-auto"
+                        priority
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#3d2570] to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-5">
+                        <p className="text-white font-bold text-base leading-tight">Maxsuel Moreira</p>
+                        <p className="text-white/60 text-sm">Especialista em Tráfego Pago</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-white mb-1">2020</div>
-                  <div className="text-white/50 text-sm">No mercado desde</div>
-                </div>
+
               </div>
             </div>
           </div>
@@ -103,17 +120,25 @@ export default function TrafegoPagoPage() {
           <p className="text-center text-gray-400 text-sm mb-10 uppercase tracking-widest font-medium">Anunciamos nas principais plataformas</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { name: "Google Ads", detail: "Rede de pesquisa, display, YouTube e muito mais", icon: Search },
-              { name: "Meta Ads", detail: "Facebook, Instagram e Audience Network", icon: Share2 },
-              { name: "TikTok Ads", detail: "Alcance o público em crescimento no TikTok", icon: Play },
-            ].map((p) => (
-              <div key={p.name} className="flex flex-col items-center text-center gap-3 p-6 rounded-2xl border border-[#e5e5e5] hover:border-[#543295]/30 transition-all">
-                <div className="w-12 h-12 rounded-xl bg-[#543295]/10 flex items-center justify-center">
-                  <p.icon className="w-6 h-6 text-[#543295]" />
+              { name: "Google Ads", detail: "Rede de pesquisa, display, YouTube e muito mais", image: "/landing-trafego/google-ads.png" },
+              { name: "Meta Ads", detail: "Facebook, Instagram e Audience Network", image: "/landing-trafego/meta-ads.png" },
+              { name: "TikTok Ads", detail: "Alcance o público em crescimento no TikTok", image: "/landing-trafego/tiktok-ads.png" },
+            ].map((p, i) => (
+              <div key={p.name} className="bg-white rounded-2xl border border-[#e5e5e5] hover:border-[#543295]/30 transition-all overflow-hidden">
+                {/* Imagem no topo */}
+                <div className={`relative w-full h-24 ${i === 2 ? "h-20" : ""}`}>
+                  <Image
+                    src={p.image}
+                    alt={p.name}
+                    fill
+                    className="object-contain pt-4"
+                  />
                 </div>
-                <div>
-                  <p className="font-semibold text-[#1a1a1a]">{p.name}</p>
-                  <p className="text-[#666666] text-sm mt-1">{p.detail}</p>
+                
+                {/* Informações abaixo */}
+                <div className="p-6 text-center">
+                  <p className="font-semibold text-[#1a1a1a] mb-2">{p.name}</p>
+                  <p className="text-[#666666] text-sm">{p.detail}</p>
                 </div>
               </div>
             ))}
@@ -170,7 +195,7 @@ export default function TrafegoPagoPage() {
           <div className="text-center mt-12">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#543295] hover:bg-[#3d2570] text-white font-semibold rounded-full transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+              className="group inline-flex items-center justify-center gap-2 px-3 max-md:w-full py-4 bg-[#543295] hover:bg-[#3d2570] text-white font-semibold rounded-full transition-all duration-300 hover:scale-[1.02] cursor-pointer"
             >
               Quero aumentar minhas vendas
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -196,36 +221,44 @@ export default function TrafegoPagoPage() {
             {[
               {
                 num: "01",
-                icon: Target,
                 title: "Estratégia Personalizada",
                 desc: "É desenvolvida uma estratégia sob medida com base no seu público-alvo e objetivos comerciais, garantindo que cada centavo seja bem aproveitado.",
+                image: "/landing-trafego/estrategia.webp",
               },
               {
                 num: "02",
-                icon: Zap,
                 title: "Criatividade Impactante",
                 desc: "São desenvolvidos e criados anúncios irresistíveis, com textos envolventes e visuais cativantes, que se destacam em meio à concorrência e geram cliques e vendas.",
+                image: "/landing-trafego/criatividade.webp",
               },
               {
                 num: "03",
-                icon: LineChart,
                 title: "Monitoramento Constante",
                 desc: "Mantemos uma constante vigilância no desempenho das suas campanhas, ajustando estratégias conforme necessário para garantir resultados consistentes e melhorar o retorno sobre o investimento.",
+                image: "/landing-trafego/monitoramento.webp",
               },
               {
                 num: "04",
-                icon: BarChart3,
                 title: "Relatórios Detalhados",
                 desc: "São fornecidos relatórios detalhados para que você possa acompanhar o progresso das suas campanhas e fazer os devidos ajustes e investimentos.",
+                image: "/landing-trafego/relatorios.webp",
               },
             ].map((item) => (
-              <div key={item.title} className="flex gap-6 p-8 bg-[#fdfdfd] border border-[#e5e5e5] rounded-2xl hover:border-[#543295]/30 transition-all">
-                <div className="shrink-0">
-                  <div className="w-12 h-12 bg-[#543295]/10 rounded-xl flex items-center justify-center">
-                    <item.icon className="w-6 h-6 text-[#543295]" />
-                  </div>
+              <div key={item.title} className="bg-white relative rounded-2xl border border-[#e5e5e5] hover:border-[#543295]/30 transition-all overflow-hidden">
+                {/* Imagem no topo sem padding */}
+                <div className="relative w-full md:h-96 h-48 overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                <div>
+
+                <div className="w-full md:h-40 h-20 bg-gradient-to-t from-white from-[10%] to-transparent absolute top-[26%] md:top-[40%]"/>
+                
+                {/* Informações abaixo */}
+                <div className="p-6">
                   <span className="text-[#543295]/40 text-xs font-bold uppercase tracking-widest">{item.num}</span>
                   <h3 className="text-xl font-bold text-[#1a1a1a] mt-1 mb-2">{item.title}</h3>
                   <p className="text-[#666666] leading-relaxed">{item.desc}</p>
@@ -237,21 +270,7 @@ export default function TrafegoPagoPage() {
       </section>
 
       {/* ========== PARCEIROS ========== */}
-      <section className="py-20 bg-[#fdfdfd]">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <span className="text-[#543295] text-sm font-semibold uppercase tracking-widest mb-3 block">Quem confia no nosso trabalho</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1a1a1a] mb-4">
-            Mais de 100 empresas no Brasil e EUA
-          </h2>
-          <p className="text-[#666666] text-lg mb-12">confiam no nosso trabalho</p>
-          <div className="flex flex-wrap justify-center items-center gap-6 opacity-30">
-            {[1,2,3,4,5,6,7,8].map((i) => (
-              <div key={i} className="w-28 h-12 bg-[#1a1a1a] rounded-lg" />
-            ))}
-          </div>
-          <p className="text-[#666666] text-sm mt-8">Logos dos parceiros em breve</p>
-        </div>
-      </section>
+      <PartnersMarquee />
 
       {/* ========== QUEM SOU ========== */}
       <section className="py-20 md:py-28 bg-[#1a1a1a] text-white">

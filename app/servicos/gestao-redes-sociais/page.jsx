@@ -69,20 +69,8 @@ export default function GestaoRedesSociaisPage() {
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </button>
 
-                  <div className="mt-12 pt-8 border-t border-white/15 grid grid-cols-3 gap-6 max-w-sm">
-                    <div>
-                      <div className="text-3xl font-bold text-white mb-1">+5K</div>
-                      <div className="text-white/50 text-sm">Conteúdos criados</div>
-                    </div>
-                    <div>
-                      <div className="text-3xl font-bold text-white mb-1">+200%</div>
-                      <div className="text-white/50 text-sm">Engajamento médio</div>
-                    </div>
-                    <div>
-                      <div className="text-3xl font-bold text-white mb-1">+300</div>
-                      <div className="text-white/50 text-sm">Clientes atendidos</div>
-                    </div>
-                  </div>
+                  
+                 
                 </div>
 
                 {/* Phone mockup — Instagram real */}
@@ -371,18 +359,7 @@ export default function GestaoRedesSociaisPage() {
             <h2 className="text-4xl md:text-5xl font-bold">Resultados que falam por si</h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-            {[
-              { number: "+550", label: "Trabalhos Realizados" },
-              { number: "+300", label: "Clientes Atendidos" },
-              
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.number}</div>
-                <div className="text-white/50 text-sm">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+          
 
           <div className="text-center">
             <p className="text-white/60 text-lg max-w-2xl mx-auto mb-8">
