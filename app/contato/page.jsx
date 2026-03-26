@@ -112,15 +112,8 @@ export default function ContatoPage() {
               </p>
 
               <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#543295]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-[#543295]" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">E-mail</h3>
-                    <p className="text-gray-600">contato@digitalsmart.com.br</p>
-                  </div>
-                </div>
+                
+            
 
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-[#543295]/10 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -128,7 +121,7 @@ export default function ContatoPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Telefone</h3>
-                    <p className="text-gray-600">+55 (31) 98416-9075</p>
+                    <p className="text-gray-600">+55 (31) 99209-9447</p>
                   </div>
                 </div>
 
@@ -162,7 +155,7 @@ export default function ContatoPage() {
                 <ul className="space-y-3">
                   <li className="flex items-center gap-2 text-gray-600">
                     <CheckCircle className="w-5 h-5 text-[#543295]" />
-                    +{partners.length} empresas parceiras
+                    +100 empresas parceiras
                   </li>
                   <li className="flex items-center gap-2 text-gray-600">
                     <CheckCircle className="w-5 h-5 text-[#543295]" />
