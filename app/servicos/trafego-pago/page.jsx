@@ -233,15 +233,15 @@ export default function TrafegoPagoPage() {
               },
               {
                 num: "03",
-                title: "Monitoramento Constante",
-                desc: "Mantemos uma constante vigilância no desempenho das suas campanhas, ajustando estratégias conforme necessário para garantir resultados consistentes e melhorar o retorno sobre o investimento.",
-                image: "/landing-trafego/monitoramento.webp",
-              },
-              {
-                num: "04",
                 title: "Relatórios Detalhados",
                 desc: "São fornecidos relatórios detalhados para que você possa acompanhar o progresso das suas campanhas e fazer os devidos ajustes e investimentos.",
                 image: "/landing-trafego/relatorios.webp",
+              },
+              {
+                num: "04",
+                title: "Monitoramento Constante",
+                desc: "Mantemos uma constante vigilância no desempenho das suas campanhas, ajustando estratégias conforme necessário para garantir resultados consistentes e melhorar o retorno sobre o investimento.",
+                image: "/landing-trafego/monitoramento.webp",
               },
             ].map((item) => (
               <div key={item.title} className="bg-white relative rounded-2xl border border-[#e5e5e5] hover:border-[#543295]/30 transition-all overflow-hidden">
@@ -255,7 +255,7 @@ export default function TrafegoPagoPage() {
                   />
                 </div>
 
-                <div className="w-full md:h-40 h-20 bg-gradient-to-t from-white from-[10%] to-transparent absolute top-[26%] md:top-[40%]"/>
+                <div className="w-full md:h-20 h-20 bg-gradient-to-t from-white from-[10%] to-transparent absolute top-[26%] md:top-[54%]"/>
                 
                 {/* Informações abaixo */}
                 <div className="p-6">
